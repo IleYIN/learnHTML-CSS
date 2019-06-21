@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>commonly used selector</title>
+        <style type="text/css" >
+            /*
+             * element selector
+             */
+             p{
+                 color:blue;
+             }
+             h1{
+                 color:green;
+             }
+
+
+             /*
+              * id selector
+              * #id attribute {}
+              */
+            #p1{
+                font-size: 20px;
+            }
+
+             /*
+              * class selector
+              * .class attribute {}
+              */
+            .p2{
+                color: violet;
+            }
+            .hello{
+                font-size: 20px;
+            }
+
+             /*
+              * selector groups (union selector)
+              * grammar: selector1, selector2, selector3 {}
+              */
+            /* #p1, .p2, h1{
+                background-color: cyan;
+            } */
+
+             /*
+              * wildcard通配 selector
+              */
+            *{
+                background-color: yellow;
+            }
+
+
+             /*
+              * complex/intersection selector
+              * choose an element which satifies several selectors
+              * for id selector, it's not recommended to use complex selector
+              */
+            span.p3{
+                font-size: 50px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>Haaaaaa</h1>
+        <p>hello how are you</p>
+        <p id="p1">hello how are you</p>
+        <p>hello how are you</p>
+
+        <!--
+            setting class attribute, could be duplicated,
+            one element could have several classes, separated by space
+        -->
+        <p class="p2 hello">hello how are you</p>
+        <p class="p2">hello how are you</p>
+        <p class="p2">hello how are you</p>
+        
+        <p class="p3">hello how are you</p>
+        <span class="p3">lalalalalalalla</span>
+    </body>
+</html>
