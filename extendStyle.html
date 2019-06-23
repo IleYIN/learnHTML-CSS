@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>样式继承</title>
+    <style type="text/css">
+        /*
+           后代元素会自动继承祖先元素的样式
+           但并不是所有样式都会继承，比如背景相关的、边框相关的、定位相关的都不会继承
+           这里是因为初始背景是透明的，所以显示了祖先元素的背景颜色
+           可以查阅w3cshool手册的继承性
+        */
+    </style>
+</head>
+
+<body>
+    <p style="font-size: 30px;background-color:red" >
+        我是一个段落
+        <span>我是p中的span</span>
+    </p>
+    <span>我是p外的span</span>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>文本标签</title>
+    <style type="text/css">
+      
+    </style>
+</head>
+
+<body>
+        <!--
+            <em>表示一段内容中的着重点（语气）,浏览器中默认斜体
+            <strong>表示一个内容的重要性,比em更强烈，默认时粗体
+                以上两种是语义上的
+                h5规范中，无需语义上的只需斜体或粗体用i和b
+          
+            <small>用于表示细则，合同小字、版权声明等，有语义
+            <big>存在，但没有语义
+
+            <cite>网页中所有的加书名号的内容可以用cite标签表示参考的内容，如书名歌名话剧电影名
+            
+            <q>标签表示一个短的引用（行内引用），默认加引号建议去除（css的before，after）
+            <blockquoto>表示一个长引用（块级引用），块独占一行
+         
+         
+        -->
+    
+    <p>
+        今天天<em>真不错</em>
+    </p>
+
+    <p>
+        今天天<strong>真不错</strong>
+    </p>
+
+    <p>
+        <i>i标签是斜体</i>
+        <b>b标签是粗体</b>
+    </p>
+
+    <p>
+        我是p标签
+        <small>我是p中的small标签</small>
+    </p>
+   
+    <p>
+        <cite>《论语》</cite>是一本书
+    </p>
+    
+    <p>
+        子曰：<q>学而时习之，不亦乐乎</q>
+    </p>
+    
+    <!-- p里不能放块元素 -->
+    <div>
+        子曰：<blockquote>学而时习之，不亦乐乎</blockquote>
+    </div>
+
+    <!--
+        使用sup标签设置上标supscript
+        使用sub标签设置下标subscript
+    -->
+    <p>
+        2<sup>2</sup>
+    </p>
+    <p>
+        人名<sup><a href="#">[1]</a></sup>
+    </p>
+    <p>
+        H<sub>2</sub>O
+    </p>
+
+    <!--
+        语义 <ins>insert插入内容下划线 <del>delete删除线
+    -->
+    <p>
+        <del>19.00</del><br/>
+        17.75<br/>
+        价格是<ins>10.00</ins>
+    </p>
+
+    <!-- 
+        需要页面中直接编写一些代码
+        
+        pre是一个预格式标签，会将代码中的格式保存，不会忽略多个空格
+        pre连每行前面的空格也会保留
+        code专门用来表示代码，但不会保留格式
+
+        一般两个结合用
+    -->
+
+    <pre>
+        window.onload = funtion(){
+            alert("Hello World");
+        };
+    </pre>
+
+    <code>
+        window.onload = funtion(){
+            alert("Hello World");
+        };
+    </code>
+
+    <pre>
+        <code>
+            window.onload = funtion(){
+                alert("Hello World");
+            };
+        </code>
+    </pre>
+</body>
+</html>

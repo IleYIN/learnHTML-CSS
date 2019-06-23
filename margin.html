@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>外边距</title>
+    <style type="text/css">
+        .box1{
+            /* 内容区宽高 */
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* 设置边框 */
+            border: 10px red solid;
+            
+            /*
+                外边距margin是盒子与其它盒子之间的距离最小值
+                在边框以外，不会影响可见框的大小，会影响盒子位置
+                
+                margin-top
+                margin-right
+                margin-bottom
+                margin-left
+
+                由于页面中的元素都是靠左靠上摆放
+                所以当设置左和上时，盒子自身位置会改变
+                而设置右和下时，其它盒子位置会改变
+            */
+            /* 和父元素内容区边界的距离 */
+            /* margin-top: 100px;
+            margin-left: 100px;
+           
+            margin-bottom: 100px; */
+
+            /* 外边距margin也可以是一个负值，向反方向移动 */
+            /* margin-left: -100px;
+            margin-bottom: -100px; */
+
+            /* 
+                margin还可以auto，auto一般只设置给水平方向
+                如果只指定左或右一个外边距，则会设置该外边距为最大值
+                而垂直方向设置为auto，则默认外边距是0
+
+                如果左右同时设置auto，则把两侧设置成相同值，
+                则可以是子元素在父元素中居中
+
+                padding没有auto这个功能
+             */
+             /* margin-left: auto;
+             margin-right: auto; */
+
+             /* 
+                外边距同样可以使用简写属性设置四个方向
+                上 右 下 左
+                上 左右 下
+                上下 左右
+                上下左右
+                可以使用 margin: 0 auto 来设置居中
+              */
+              /* margin: 10px 20px 30px 40px; */
+            margin: 0 auto;
+
+        }
+
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        内容区content 放元素element
+        内边距padding
+        边框border
+        外边距margin
+    -->
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>
