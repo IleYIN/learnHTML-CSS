@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>display</title>
+    <style type="text/css">
+       a{
+           background-color: #bfa;
+           /* inline element cannot set width and height 
+                change it to block element
+
+                using display
+                    inline: by default
+                    block: display as block
+                    inline-block: display as block, it's inline (not one line alone),
+                    and it cas set width and height
+                    none: do not show element and do not take any space
+           
+            */
+            display: block;
+
+            width: 300px;
+            height: 300px;
+       }
+
+       .box{
+           width: 100px;
+           height: 100px;
+           background-color: orange;
+            /* 
+                 display: none; do not show element and do not take any space
+             */
+           /* display: none; */
+
+           /* 
+                visibility
+                    visible: by default
+                    hidden: do not show element but still take space
+            */
+            visibility: hidden;
+       }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <a href="#">I'm a big big hyper reference</a>
+    hello
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>float</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            /* 
+                without width setting, by default, child element width is 100% father element 
+                when block element gets rid of file stream, height and width will be extended by contents
+            */
+            /* width: 100px; */
+            /* height: 100px; */
+            background-color: #bfa;
+
+            /* float: left; */
+        }
+
+        .s1{
+             /* when inline element gets rid of file stream, it becomes block element and can set width or height */
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box1">a</div>
+    <span class="s1">I'm a span</span>
+</body>
+
+</html>
