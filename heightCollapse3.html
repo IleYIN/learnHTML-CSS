@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>height collapse3</title>
+    <style type="text/css">
+        .box1 {
+            border: 1px solid red;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+
+            float: left;
+        }
+
+        /* 
+            another method to solve the height collapse 
+            add a non-floating black div in the end of father element,
+            it can extend the father element's height
+            clear: both  to clear effects of other floating elements
+
+            use after pseudo class to add a black div in the end
+            the most recommended
+
+            however IE6 does't support
+            so adds zoom:1
+            
+         */
+        .clearfix::after {
+            content: "";
+            /* inline to block because clear is an attribute of block*/
+            display: block;
+            clear: both;
+        }
+        .clearfix{
+            zoom: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1 clearfix">
+
+        <div class="box2"></div>
+
+    </div>
+</body>
+
+</html>

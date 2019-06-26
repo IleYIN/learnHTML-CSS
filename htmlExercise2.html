@@ -1,0 +1,187 @@
+<!DOCTYPE html <html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>html Exercise2</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* 12px 1 time line height */
+            font: 12px/1 Arial;
+            color: white;
+        }
+
+        .outer {
+            width: 300px;
+            height: 473px;
+            background-color: darkblue;
+
+            margin: 50px auto;
+        }
+
+        .title {
+            border-top: 2px #019e8b solid;
+            height: 36px;
+            background-color: #f5f5f5;
+            color: green;
+
+            line-height: 36px;
+
+            /* margin: 0 22px 0 16px; */
+            /* when have set a width for the visible frame, 
+            changing padding will influence the size of frame,
+            here width: auto will ensure the width won't pass the width of father element */
+            padding: 0 22px 0 16px;
+        }
+
+        .title a {
+            float: right;
+            color: darkorchid;
+            font-weight: bold;
+        }
+
+        .title h3 {
+            /* font: 14px/1 "Cooper Black" */
+            font: 16px/36px "Cooper Black"
+        }
+
+        .content {
+            border: 1px solid yellowgreen;
+            padding: 0 28px 0 20px;
+        }
+
+
+        .content .redtext{
+            color: red;
+            font-weight: bold;
+        }
+
+        .content .redtext:hover{
+            color: orange;
+        }
+
+        .content a{
+            color: yellow;
+            text-decoration: none; 
+            font-size: 12px;
+        }
+
+        .content a:hover{
+            color:white;
+            text-decoration: underline;
+        }
+        
+
+        .content .right{
+            float: right;
+        }
+
+        .content h3{
+            /* padding-top: 13px;
+            padding-bottom: 16px; */
+            margin-top: 13px;
+            margin-bottom: 15px;
+        }
+
+        .content li{
+            margin-bottom: 14px;
+        }
+
+        .content ul{
+            list-style: none;
+            border-bottom: 1px dashed #deddd9;
+        }
+
+        .content .noborder{
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="title">
+            <a href="#"> contact us</a>
+            <h3>my first page</h3>
+        </div>
+        <div class="content">
+            <h3>
+                <a href="#">
+                    My subtitle 1
+                </a>
+            </h3>
+            <ul>
+                <li>
+                    <a class="right" href="#"><span class="redtext">register</span></a>
+                    <a href="#">my href <span class="redtext">0001</span></a>
+                </li>
+                <li>
+                    <a class="right" href="#"><span class="redtext">full</span></a>
+                    <a href="#">my href <span class="redtext">0002</span></a>
+                </li>
+                <li>
+                    <a class="right" href="#"><span>wait</span></a>
+                    <a href="#">my href <span class>0003</span></a>
+                </li>
+                <li>
+                    <a  class="right" href="#"><span>wait</span></a>
+                    <a href="#">my href <span class>0004</span></a>
+                </li>
+            </ul>
+            
+            <h3>
+                <a href="#">
+                    My subtitle 2
+                </a>
+            </h3>
+            <ul>
+                <li>
+                    <a class="right" href="#"><span class="redtext">register</span></a>
+                    <a href="#">my href <span class="redtext">0001</span></a>
+                </li>
+                <li>
+                    <a class="right" href="#"><span class="redtext">full</span></a>
+                    <a href="#">my href <span class="redtext">0002</span></a>
+                </li>
+                <li>
+                    <a class="right" href="#"><span>wait</span></a>
+                    <a href="#">my href <span class>0003</span></a>
+                </li>
+                <li>
+                    <a  class="right" href="#"><span>wait</span></a>
+                    <a href="#">my href <span class>0004</span></a>
+                </li>
+            </ul>
+
+            <h3>
+                <a href="#">
+                    My subtitle 3
+                </a>
+            </h3>
+            <ul class="noborder">
+                <li>
+                    <a class="right" href="#"><span class="redtext">register</span></a>
+                    <a href="#">my href <span class="redtext">0001</span></a>
+                </li>
+                <li>
+                    <a class="right" href="#"><span class="redtext">full</span></a>
+                    <a href="#">my href <span class="redtext">0002</span></a>
+                </li>
+                <li>
+                    <a class="right" href="#"><span>wait</span></a>
+                    <a href="#">my href <span class>0003</span></a>
+                </li>
+                <li>
+                    <a  class="right" href="#"><span>wait</span></a>
+                    <a href="#">my href <span class>0004</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

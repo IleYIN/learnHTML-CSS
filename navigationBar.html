@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>navigation bar</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav{
+            /* no item symbol */
+            list-style: none;
+
+            background-color: #6495ed;
+            width: 1000px;
+            margin: 50px auto;
+        
+            /* solve height collapse pb */
+            overflow: hidden;
+
+            /* in IE6, if element has a indicated width, 
+            by defaut hasLayout is open, height won't collapse */
+        }
+
+        .nav li{
+            float: left;
+            
+            width: 25%;
+        }
+
+        .nav a {
+            display: block;
+            /* width: 25% impossible cuz father element is li */
+            width: 100%;
+
+            text-align: center;
+
+            padding: 5px 0;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-weight: bold;
+        }
+
+        .nav a:hover{
+            background-color: #c00;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">first page</a>
+        </li>
+        <li>
+            <a href="#">news</a>
+        </li>
+        <li>
+            <a href="#">contacts</a>
+        </li>
+        <li>
+            <a href="#">about</a>
+        </li>
+    </ul>
+</body>
+
+</html>
