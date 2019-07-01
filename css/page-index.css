@@ -12,11 +12,40 @@ body{
 }
 
 .header{
-    background-color: #bfa;
-    padding-top: 37px;
-    padding-bottom: 66px;
+    /* background-color: #bfa; */
+    padding-top: 15px;
+    padding-bottom: 25px;
 }
 
 .logo{
     margin-left: 15px;
+}
+
+.nav{
+    float: right;
+    margin-top: 35px;
+}
+
+.nav li{
+    float: left;
+    padding: 0 10px 10px;
+    border-left: 1px #b6b6b6 dotted;
+}
+
+.nav a{
+    color: #666;
+    font: bold 14px Georgia;
+    text-decoration: none;
+}
+
+.nav a:hover{
+    color: #a1a1a1;
+    text-decoration: underline;
+}
+
+/* 在chrome浏览器最多支持12px，更小的都显示12px */
+
+.nav p{
+    color: #b7b7b7;
+    font: 11px tahoma;
 }
