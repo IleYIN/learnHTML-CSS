@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>css-hack</title>
+    <style type="text/css">
+        /* suppose only in IE6 and under IE6, bgcolor is yellow
+            then add _ before attribute
+
+          add * before attribute   <=IE7  
+
+            add in the end
+            \9 >=IE6
+            \0 >=IE8
+
+            not recommended to use hack
+         */
+        
+        /* * html selector    only IE6 can identify */
+         * html body{ 
+            background-color: #bfa;
+            /* background-color: #bfa \9; */
+
+            _background-color: yellow;
+        }
+    </style>
+</head>
+
+</body>
+<body>
+
+</html>

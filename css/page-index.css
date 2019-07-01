@@ -1,0 +1,22 @@
+/* stylesheet of the page */
+
+body{
+    background: url(../img/bd-bg.jpg) repeat-x;
+}
+
+
+/* fix width and set centered horizotally */
+.w{
+    width: 940px;
+    margin: 0 auto;
+}
+
+.header{
+    background-color: #bfa;
+    padding-top: 37px;
+    padding-bottom: 66px;
+}
+
+.logo{
+    margin-left: 15px;
+}
