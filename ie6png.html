@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ie6png修复</title>
+    <style type="text/css">
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-image: url(img/france.png);
+            background-repeat: no-repeat;
+            background-color: #bfa;
+
+            /* IE6 对png24支持度不高， 如果使用的图片格式是png24
+                   则会导致透明无法正常显示
+                    可以用png8来代替，但是清晰度会有所下降
+                    或 可以用Javascrpit解决问题，需要引用一个外部文件来处理问题
+             */
+        }
+    </style>
+</head>
+    <body>
+        <div class="box1"></div>
+    </body>
+</html>

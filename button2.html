@@ -15,6 +15,10 @@
                 here it loads link but not hover and active because they're not used.
                 Only when hover or active is been actived, it wll load the corresonding resource
                 the loading time cause the problem 
+
+
+                解决该问题，可以将三张图片整合成一张图片，
+                再通过background-position来切换要显示的图片的位置（CSS-Sprite)
             
          */
 
@@ -23,16 +27,18 @@
 
             width: 308px;
             height: 86px;
-            background-image: url(img/button.jpg);
-            background-position: center;
+            background-image: url(img/buttonT.jpg);
+      
             background-repeat: no-repeat;
         }
 
         .btn:hover{
-            background-image: url(img/button2.jpg);
+            background-image: url(img/buttonT.jpg);
+            background-position: -308px 0px;
         }
         .btn:active{
-            background-image: url(img/button3.jpg);
+            background-image: url(img/buttonT.jpg);
+            background-position: -618px 0px;
         }
     </style>
 
