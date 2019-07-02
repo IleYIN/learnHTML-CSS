@@ -2,6 +2,18 @@
 
 body{
     background: url(../img/bd-bg.jpg) repeat-x;
+    height: 3000px;
+}
+
+/* 解决高度塌陷问题 */
+.clearfix:before,
+.clearfix:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.clearfix{
+    zoom: 1;
 }
 
 
@@ -14,7 +26,7 @@ body{
 .header{
     /* background-color: #bfa; */
     padding-top: 15px;
-    padding-bottom: 35px;
+    padding-bottom: 30px;
 }
 
 .logo{
@@ -51,9 +63,11 @@ body{
 }
 
 .banner{
+    /* height为下面阴影和banner图片高度之和
+    下面阴影在css中设为背景图片且是底部居中 */
     height: 300px;
     background: url(../img/banner/banner-bg.jpg) no-repeat bottom center;
-
+    /* background-color: #bfa; */
     /* open a relative position */
     position: relative;
 }
@@ -81,7 +95,76 @@ body{
     background: url(../img/point2.jpg) no-repeat center;
 }
 
+/* .content{  
+    background-color: red;
+} */
 
 .content h1{
     text-align: center;
+    font: bold 24px Georgia;
+
+    /* 不选外边距以免传递给父元素 */
+    padding: 50px 0 20px 0;
+    background: url(../img/line.jpg) no-repeat bottom center;
+   
+    /* 设置h1 div 和下面 p1 cs uc的距离 */
+    margin-bottom: 20px;
+
+}
+
+.content .pl, .content .cs, .content .uc{
+    float: left;
+    width: 300px;
+    /* height: 100px; */
+    /* background-color: yellow; */
+}
+
+.content .cs{
+    margin: 0 20px;
+}
+
+.content h2{
+    color: #11719e;
+    font: 21px Georgia;
+}
+
+.content .p1{
+    color: #8c8c8c;
+    font: 12px Helvetica;
+}
+
+/* 设置图片div */
+.content .imgDiv{
+    width: 300px;
+    /* height: 200px; */
+    height: 190px;
+    background: url(../img/bg1.jpg) center no-repeat;
+    margin: 20px 0;
+
+    /* 内联元素设置水平居中 */
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* 设置p2文字 */
+.content .p2{
+    height: 92px;
+    color: #3e3e3e;
+    font: 13px Helvetica;
+
+   padding: 0 10px;
+   word-spacing: 2px;
+}
+
+.content .lm{
+    display: block;
+    width: 160px;
+    height: 32px;
+    background: url(../img/bg2.jpg) no-repeat;
+    text-decoration: none;
+    color: #016999;
+    font: 12px/32px Helvetica;
+    /* 首行缩进一个字 */
+    text-indent: 1em;
+    margin: 0 0 30px 5px;
 }
