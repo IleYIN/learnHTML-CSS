@@ -14,7 +14,7 @@ body{
 .header{
     /* background-color: #bfa; */
     padding-top: 15px;
-    padding-bottom: 25px;
+    padding-bottom: 35px;
 }
 
 .logo{
@@ -48,4 +48,40 @@ body{
 .nav p{
     color: #b7b7b7;
     font: 11px tahoma;
+}
+
+.banner{
+    height: 300px;
+    background: url(../img/banner/banner-bg.jpg) no-repeat bottom center;
+
+    /* open a relative position */
+    position: relative;
+}
+
+.pointerDiv{
+    /* open an absolute position (relative to the closet open position element) */
+    position: absolute;
+    top: 210px;
+    left: 750px;
+}
+
+.pointerDiv a{
+    /* display: inline-block; */
+    float: left;
+
+    width: 27px;
+    height: 27px;
+
+    margin-left: 4px;
+    /* background-color: red; */
+    background: url(../img/point1.jpg) no-repeat center;
+}
+
+.pointerDiv a:hover{
+    background: url(../img/point2.jpg) no-repeat center;
+}
+
+
+.content h1{
+    text-align: center;
 }
