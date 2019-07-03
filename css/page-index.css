@@ -112,14 +112,15 @@ body{
 
 }
 
-.content .pl, .content .cs, .content .uc{
+.content .pl, .content .cs, .content .uc
+{
     float: left;
     width: 300px;
     /* height: 100px; */
     /* background-color: yellow; */
 }
 
-.content .cs{
+.content .cs, .contact .co{
     margin: 0 20px;
 }
 
@@ -160,11 +161,40 @@ body{
     display: block;
     width: 160px;
     height: 32px;
-    background: url(../img/bg2.jpg) no-repeat;
+    background: url(../img/buttonbg1.jpg) no-repeat;
     text-decoration: none;
     color: #016999;
     font: 12px/32px Helvetica;
     /* 首行缩进一个字 */
     text-indent: 1em;
     margin: 0 0 30px 5px;
+}
+
+.contact .sc, .contact .co, .contact .nu{
+    float: left;
+    width: 300px;
+    height: 500px;
+    background-color: yellow;
+}
+
+
+/* form is inline-block */
+.contact .txt{
+    width: 284px;
+    height: 48px;
+    background:url(../img/frame/input.png) no-repeat center;
+    background-color: red;
+    border: none;
+    padding: 0 6px;
+}
+
+.contact .tarea{
+    width: 284px;
+    height: 178px;
+    background: url(../img/frame/textarea.png) no-repeat center;
+    border: none;
+    background-color: blue;
+    padding: 0 6px;
+
+    overflow: auto;
 }
