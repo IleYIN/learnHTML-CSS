@@ -2,7 +2,7 @@
 
 body{
     background: url(../img/bd-bg.jpg) repeat-x;
-    height: 3000px;
+    /* height: 3000px; */
 }
 
 /* 解决高度塌陷问题 */
@@ -131,7 +131,7 @@ body{
 
 .content .p1{
     color: #8c8c8c;
-    font: 12px Helvetica;
+    font: 12px/14px Helvetica;
 }
 
 /* 设置图片div */
@@ -178,7 +178,7 @@ body{
 .contact .sc, .contact .co, .contact .nu{
     float: left;
     width: 300px;
-    height: 500px;
+    /* height: 500px; */
 
     /* background-color: yellow; */
 }
@@ -249,7 +249,7 @@ body{
 
 .contact h2{
     color: #444;
-    font: 18px georgia;
+    font: 18px/1 georgia;
     border-bottom: 1px dashed #d3d3d3;
     
     padding: 44px 0px 10px;
@@ -261,7 +261,9 @@ body{
 
 .sc .p1{
     color: #444;
-    font: 12px Helvetica;
+    font: 12px/14px Helvetica;
+    padding: 0 0 5px;
+    word-spacing: 2px;
 }
 
 .sc .icon{
@@ -271,4 +273,37 @@ body{
 
 .sc .icon a{
     margin-right: 4px;
+}
+
+.sc .nl{
+    /* one line height */
+    font: bold 18px/1 "gill sans mt";
+    padding: 20px 0 5px;
+  
+}
+
+.sc .txt{
+    margin: 20px 5px 0;
+}
+
+.nu img{
+    float: left;
+    margin-right: 8px;
+}
+
+.nu p{
+    color: #444;
+    font: 12px/14px helvetica;
+    height: 60px;
+
+    border-bottom: 1px dashed #d3d3d3;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.footer{
+    height: 173px;
+    background: #333;
+
+    border-top: 10px solid #4c4c4c;
 }
