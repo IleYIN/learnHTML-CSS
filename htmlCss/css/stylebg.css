@@ -1,0 +1,7 @@
+  .box1 {
+            
+            /* 
+                relative path is relative to the folder this file is in
+             */
+            background-image: url(../img/background1.jpg)
+        }

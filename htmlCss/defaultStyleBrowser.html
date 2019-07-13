@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>浏览器默认样式</title>
+    <style type="text/css">
+        /* 
+            F12查看浏览器的布局
+            浏览器对很多标签有默认的margin和padding
+            当不需要这些默认的时候，如下要去掉
+         */
+        /* body{
+            margin: 0;
+        }
+        p{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        } */
+        /* 或者直接用选择器去掉所有默认 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+        p{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+
+    <p>我是个p标签</p>
+    <p>我是个p标签</p>
+    <p>我是个p标签</p>
+
+    <ul>
+        <li>无序列表行</li>
+        <li>无序列表行</li>
+        <li>无序列表行</li>
+        <li>无序列表行</li>
+    </ul>
+</body>
+</html>

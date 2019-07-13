@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html>
+	<head> 
+		<meta charset = "UTF-8"/>
+        <title> 字体样式</title>
+        <style type="text/css">
+            .p1{
+                color:red;
+
+                /* 默认font-size是16px，
+                  font-size设置的不是文字本身的大小
+                  设置的是文字所在的格的高度，一般文字要比格小
+                  根据字体的不同，显示效果也不同
+                 */
+                font-size: 20px;
+
+                /* font-family可以设置字体
+                    当采用某种字体时，如果浏览器支持则使用，
+                    否则使用默认字体
+                    该样式可以同时指定多个字体，逗号分开
+                    多个字体时，浏览器会优先使用前面的字体，不支持就找下一个
+                    浏览器使用的字体是客户计算机中的字体 C://windows/Fonts
+                    
+                    在开发中，尽量少用奇怪字体，避免用户电脑不含该字体
+                 */
+                /* font-family: 华文彩云; */
+                /* font-family: arial,微软雅黑; */
+                font-family: "curlz mt",微软雅黑;
+
+            }
+        </style>
+	</head>
+	<body>
+		<p class="p1">
+            我是一个p标签 abcdefgh
+        </p>
+	</body>
+</html>

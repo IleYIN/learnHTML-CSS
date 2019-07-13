@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title> 字体其它样式 </title>
+    <style type="text/css">
+        .p1 {
+            color: blue;
+            font-size: 30px;
+            font-family: arial, 微软雅黑, 华文彩云, serif;
+            /* font-style可以用来设置文字的斜体
+                    normal 默认值 正常显示
+                    italic 斜体
+                    oblique 倾斜效果
+                    大部分浏览器倾斜和斜体差不多，一般只用italic
+                 */
+            font-style: italic;
+
+            /* font-weight可以用来设置文字的加粗效果 
+                    normal bold bolder...
+                    也可以指定100-900之间的9个值
+                    一般用户电脑里没有那么多级别达不到效果，有可能200和100是一样的
+                 */
+            font-weight: bold;
+
+            /* font-variant可以用来设置小型大写字母
+                    normal small-caps
+            */
+            font-variant: small-caps;
+
+        }
+
+        .p2 {
+            font-size: 50px;
+            font-family: 华文彩云;
+            font-style: italic;
+            font-weight: bold;
+            font-variant: small-caps;
+        }
+
+        .p3{
+            /* 
+               在css中一个样式font可以同时设置
+               字体相关所有样式 用空格隔开
+               字体和大小必须写 字体在最后 大小在倒数第二个
+               其它的没有顺序要求 可写可不写 
+               性能比上面的方式好 一次性解析
+            */
+            font: italic bold 10px "微软雅黑"
+        }
+    </style>
+</head>
+
+<body>
+    <p class="p1">
+        我是一个p标签 ABCdefghii
+    </p>
+    <p class="p1" style="font-style: oblique;">
+        我是一个p标签 ABCdefghii
+    </p>
+    <p class="p2">
+        我是一个p标签 ABCdefghii
+    </p>
+    <p class="p3">
+        我是一个p标签 ABCdefghii
+    </p>
+</body>
+
+</html>

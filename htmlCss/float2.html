@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>float</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }K
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+
+            /*
+                floating element will not cover the words, 
+                words will automatically surround the floating elements
+            */
+            float: left;
+        }
+
+        .p1 {
+            /* height: 200px; */
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <p class="p1">
+        “FPGA”的图片搜索结果zh.wikipedia.org
+        FPGA（Field－Programmable Gate Array），即现场可编程门阵列，它是在PAL、GAL、CPLD等可编程器件的基础上进一步发展的产物。
+        它是作为专用集成电路（ASIC）领域中的一种半定制电路而出现的，既解决了定制电路的不足，又克服了原有可编程器件门电路数有限的缺点。
+        FPGA采用了逻辑单元阵列LCA（Logic Cell Array）这样一个概念，内部包括可配置逻辑模块CLB（Configurable Logic Block）、输入输出模块IOB（Input Output
+        Block）和内部连线（Interconnect）三个部分。
+        现场可编程门阵列（FPGA）是可编程器件，与传统逻辑电路和门阵列（如PAL，GAL及CPLD器件）相比，FPGA具有不同的结构。FPGA利用小型查找表（16×1RAM）来实现组合逻辑，每个查找表连接到一个D触发器的输入端，触发器再来驱动其他逻辑电路或驱动I/O，由此构成了既可实现组合逻辑功能又可实现时序逻辑功能的基本逻辑单元模块，这些模块间利用金属连线互相连接或连接到I/O模块。FPGA的逻辑是通过向内部静态存储单元加载编程数据来实现的，存储在存储器单元中的值决定了逻辑单元的逻辑功能以及各模块之间或模块与I/O间的联接方式，并最终决定了FPGA所能实现的功能，FPGA允许无限次的编程。
+        电源类型
+        FPGA电源要求输出电压范围从1.2V到5V，输出电流范围从数十毫安到数安培。可用三种电源：低压差（LDO）线性稳压器、开关式DC-DC稳压器和开关式电源模块。最终选择何种电源取决于系统、系统预算和上市时间要求。
+        如果电路板空间是首要考虑因素，低输出噪声十分重要，或者系统要求对输入电压变化和负载瞬变做出快速响应，则应使用LDO稳压器。LDO功效比较低（因为是线性稳压器），只能提供中低输出电流。输入电容通常可以降低LDO输入端的电感和噪声。LDO输出端也需要电容，用来处理系统瞬变，并保持系统稳定性。也可以使用双输出LDO，同时为VCCINT和VCCO供电。
+        如果在设计中效率至关重要，并且系统要求高输出电流，则开关式稳压器占优势。开关电源的功效比高于LDO，但其开关电路会增加输出噪声。与LDO不同，开关式稳压器需利用电感来实现DC-DC转换。
+        要求
+        为确保正确上电，内核电压VCCINT的缓升时间必须在制造商规定的范围内。对于一些FPGA，由于VCCINT会在晶体管阈值导通前停留更多时间，因此过长的缓升时间可能会导致启动电流持续较长时间。如果电源向FPGA提供大电流，则较长的上电缓升时间会引起热应力。ADI公司的DC-DC稳压器提供可调软启动，缓升时间可以通过外部电容进行控制。缓升时间典型值在20ms至100ms范围内。
+        许多FPGA没有时序控制要求，因此VCCINT、VCCO和VCCAUX可以同时上电。如果这一点无法实现，上电电流可以稍高。时序要求依具体FPGA而异。对于一些FPGA，必须同时给VCCINT和VCCO供电。对于另一些FPGA，这些电源可按任何顺序接通。多数情况下，先给VCCINT后给VCCO供电是一种较好的做法。
+        当VCCINT在0.6V至0.8V范围内时，某些FPGA系列会产生上电涌入电流。在此期间，电源转换器持续供电。这种应用中，因为器件需通过降低输出电压来限制电流，所以不推荐使用返送电流限制。但在限流电源解决方案中，一旦限流电源所供电的电路电流超过设定的额定电流，电源就会将该电流限制在额定值以下。
+    </p>
+</body>
+
+</html>

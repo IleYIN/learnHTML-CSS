@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>overflow</title>
+    <style type="text/css">
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;  
+        /* 
+            in theory, child element's max size should be inferior to size of father element's content
+            howerver, if it's bigger, it has overflow
+
+            father element by default will show the overflow part outside itself
+            through "overflow", it can choose how to deal with the overflow part
+                visible:  by default
+                hidden:   hide the overflow part 
+                scroll:   show by scrolling, no matter it has overflow or not, it shows scroll bar of both directions
+                auto:     only when it has overflow, it adds scroll bar for that direction
+
+         */
+         overflow: auto;
+        }
+
+        .box2{
+            width: 100px;
+            height: 500px;
+            background-color: red;  
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2">in theory, child element's max size should be inferior to size of father element's content
+                howerver, if it's bigger, it has overflow
+    
+                father element by default will show the overflow part outside itself
+                through "overflow", it can choose how to deal with the overflow part
+                    visible:  by default
+                    hidden:   hide the overflow part 
+                    scroll:   show by scrolling no matter it has overflow or not, it shows scroll bar of both directions
+                    auto:     only when it has overflow, it adds scroll bar for that direction
+    </div>
+    </div>
+</body>
+
+</html>

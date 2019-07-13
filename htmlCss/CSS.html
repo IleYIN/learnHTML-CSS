@@ -1,0 +1,65 @@
+<!--
+	CSS: Cascading Style Sheets 层叠样式表 (tilt-3D plugin)
+-->
+<!DOCTYPE html> 
+<html>
+	<head> 
+		<meta charset = "UTF-8"/>
+		<title>CSS</title>
+		<!--
+			CSS style can be eedited into the style of head;
+			<style type="text/css"> by default
+			using CSS selector to reuse styles, separation of structure and performance,
+			recommended
+				
+			note: in the css part, cannot use html tags, must use css grammar		
+			
+			
+		-->
+		
+			<style type="text/css">
+				/*
+					CSS annotations, using css grammar not html grammar
+					
+					CSS grammar:
+						selector {declaration block}  --apply the style to the elements in the selector
+													  --declaration block uses name-value pairs, separated by ;
+											
+				 */
+				
+				p{
+					color:blue;
+					font-size:20px;
+				}
+			</style>
+			
+		
+		<!--
+			or write in an outer CSS document, use link tag to apply the CSS
+			
+			separate the structure and performance, using an independant CSS sheet,
+			only need to load the sheet for one time, accelerate the request of page
+			
+			most recommended
+
+			<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		-->
+		
+	</head>
+	<body>
+		<!--
+			CSS style can be edited into style attribute of element
+				inline style, can only be useful for current element, not convenient for reuse
+				it's coupling of structure and performance, not recommended
+		-->
+		<p style="color:red;font-size:40px">Helloooooo!</p>
+		<p>Hello, how are you!</p>
+		<p>Hello, how are you!</p>
+		<p>Hello, how are you!</p>
+		<p>Hello, how are you!</p>
+		<p>Hello, how are you!</p>
+		<p>Hello, how are you!</p>
+		
+	</body>
+</html>

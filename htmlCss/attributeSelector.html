@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>attributeSelector</title>
+    <style type="text/css">
+        /* 
+            attribute selector
+            [属性名]
+            [属性名="属性值"]
+            [属性名^="属性值"] 以开头
+            [属性名$="属性值"] 以结尾
+            [属性名*="属性值"] 以包含指定元素
+        */
+        /* p[title]{
+            background-color: yellow;
+        } */
+        p[title="hello"]{
+            font-size: 50px;
+        }
+        p[title^="ab"]{
+            color:green;
+        }
+        p[title$="文字"]{
+            background-color:blue;
+        }
+        p[title*="ell"]{
+            background-color:violet;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 
+        title属性可以给任何标签指定，鼠标移入是会作为提示显示
+    -->
+    <p title="我是title中的文字">我是一个<br />段落</p>
+    <p>我是一个段落</p>
+    <p title="abcd">我是一个段落</p>
+    <p title="abddgsgell">我是一个段落</p>
+    <p>我是一个段落</p>
+    <p>我是一个段落</p>
+    <p title="hello">我是一个</p>
+</body>
+
+</html>

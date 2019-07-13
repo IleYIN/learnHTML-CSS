@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>内边距</title>
+    <style type="text/css">
+        .box1{
+            /* 内容区宽高 */
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* 设置边框 */
+            border: 10px red solid;
+            
+            /* 
+                内边距padding指盒子内容区与盒子边框之间的距离
+                内边距里不能放东西
+                四个方向 
+                    padding-top
+                    padding-right
+                    padding-bottom
+                    padding-left
+                    内边距会影响盒子的可见框的大小
+                    元素的背景会延申到内边距
+
+                    padding: 上下左右
+                    padding: 上下 左右
+                    padding: 上 左右 下
+                    padding: 上 右 下 左
+                    
+                    盒子的大小由内容区、内边距和边框共同决定
+                    可见框的宽度 = border-left-width + padding-left + width 
+                                    + padding-right + border-right-width 
+                    可见框的高度 = border-top-width + padding-top + height
+                                    + padding-bottom + border-bottom-width 
+             */
+             /* padding-top: 100px;
+             padding-right: 100px; */
+             padding: 100px 50px 80px;
+        }
+
+        /* 子元素都是在父元素的内容区  */
+        .box2{
+            width: 100%;
+            height: 100%;
+            background-color: yellow;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!--
+        内容区content 放元素element
+        内边距padding
+        边框border
+        外边距margin
+    -->
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

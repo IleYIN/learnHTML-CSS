@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>button</title>
+    <style type="text/css">
+
+        /* 
+            when use it first time, there's very quick flash,
+            cause: the picture is an outer resource,
+                every time browser load an outer resource, it needs to send a single request
+                here it needs three other requests. 
+                Outer resources will be loaded only when it needs, 
+                here it loads link but not hover and active because they're not used.
+                Only when hover or active is been actived, it wll load the corresonding resource
+                the loading time cause the problem 
+            
+         */
+
+        .btn:link{
+            display: block;
+
+            width: 308px;
+            height: 86px;
+            background-image: url(img/button.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .btn:hover{
+            background-image: url(img/button2.jpg);
+        }
+        .btn:active{
+            background-image: url(img/button3.jpg);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <a class="btn" href="#"></a>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ie6png修复</title>
+    <style type="text/css">
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-image: url(img/france.png);
+            background-repeat: no-repeat;
+            background-color: #bfa;
+
+            /* IE6 对png24支持度不高， 如果使用的图片格式是png24
+                   则会导致透明无法正常显示
+                    可以用png8来代替，但是清晰度会有所下降
+                    或 可以用Javascrpit解决问题，需要引用一个外部文件来处理问题
+
+                    watch css-hack.html
+             */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+
+    <!-- 
+            开发环境用不带min的带格式的
+            生产环境用带min的全写一行的压缩过的 
+            在body标签的最后引入外部的JS文件
+        -->
+    <!-- 再创建一个新的script标签并且编写一些js代码 -->
+
+    <!-- [if IE 6]>
+        <script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script type="text/javascript">
+            DD_belatedPNG.fix("div,img");
+            // DD_belatedPNG.fix("*");
+        </script>
+     <![endif] -->
+</body>
+
+</html>

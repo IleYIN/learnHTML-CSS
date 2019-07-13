@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>绝对定位</title>
+    <style type="text/css">
+        .box1 {
+            /* w200  h200 Tab简写自动补全 */
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            background-color: red;
+        }
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            /* position: absolute; */
+            /* 
+                绝对定位
+                1.开启绝对定位会使元素脱离文档流
+                2.开启绝对定位以后，如果不设置偏移量，则该元素位置不会变化、
+                3.绝对定位时不一定是相对于浏览器窗口进行定位的
+                    而是相对于离它最近的开启了定位的祖先元素来定位
+                    比如box4开启了定位，则box2的绝对定位是相对于box4
+                    如果所有的祖先元素都没有开启定位，则相对于浏览器窗口
+                    一般情况下，开启了子元素的绝对定位都会开启父元素的相对定位
+                4. 绝对定位会使元素提升一个层级
+                5. 绝对定位会改变元素性质，内联元素会变成块元素，可以设置宽高，宽高默认时是被内容撑开
+                （没有脱离文档流时，如果子元素没有设置宽度，
+                    宽度会默认是父元素的100%, 脱离了则由内容撑开）
+             */
+            /* left: 100px;
+            top: 100px; */
+        }
+        .box3 {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+        .box4{
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            position: relative;
+        }
+        .s1{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- div.box$*3 简写可以自动出来-->
+    <div class="box1"></div>
+    <div class="box4">
+        <div class="box2"></div>
+    </div>
+    <div class="box3"></div>
+
+    <span class="s1">我是一个span</span>
+</body>
+
+</html>
