@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+  
+    <script type="text/javascript">
+        //基本数据类型 String Number Boolean Null Undefined
+        //引用数据类型 Object  
+
+        //JS中所有数值都是Number类型包括整数和浮点数（小数）
+
+        //数字123
+        var a=123;
+
+        //字符串123
+        var b="123";
+
+        console.log(typeof a);
+        console.log(typeof b);
+        
+        console.log(Number.MAX_VALUE);
+        // 1.7976931348623157e+308
+        //数字超过上面最大值 则显示Infinity表示正无穷
+        // -Infinity表示负无穷
+
+        console.log(Number.MIN_VALUE);
+        //0以上的最小值 5e-324
+
+        //NaN表示not a number, 类型为number
+        console.log(typeof NaN);
+
+
+        // 如果使用JS计算浮点元素，可能得到一个不精确的结果
+
+
+        // typeof null 是 object
+        // Undefined类型的值只有一个就是undefined，未声明值的变量其值就是undefined
+
+        var c;
+        console.log(c);
+        console.log(typeof c);
+
+
+
+        //数据类型转换 --> String
+        // 1.调用toString()  null和undefined无此方法
+        // 2.调用String(parameter)
+
+        c = String(c);
+        console.log(typeof c);
+
+        /*数据类型转换 --> Number
+            1.Number()  
+                数字-->Number 非数字-->NaN  空串或全空格字符-->0
+                boolean --> true 1 false 0   Null-->0   undefined-->NaN
+            2.专门对付字符串
+                parseInt()
+                parseFloat()
+                对于非字符串，会先将其转换成字符串再操作
+        */
+        a = "123px456";
+        a = parseInt(a);
+
+        console.log(typeof a);
+        console.log(a);
+
+        // Ox开头表示16进制数字 0开头表示8进制数字 0b开头表示二进制数字(浏览器不一定支持)
+        // "070"这种字符串可能会当初8或10进制，要加指定进制
+        a = "070";
+        b = parseInt(a,10);
+        c = parseInt(a,8);
+        console.log(b);
+        console.log(c);
+
+        // Boolean()  非0非NaN的Number为true；非空字符串为true；null/undefined为false；对象也会转成true
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
