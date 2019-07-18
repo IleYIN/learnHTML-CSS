@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /*
+              prototype
+                  all functions have its attribute prototype,
+                  the value of this prototype is the address of its corresponding prototype object
+  
+                  __proto__ can be used to know the prototype object of object created by a constructor funtion
+
+                when use an attribute or a method of an object, it will firstly find it in the object 
+                then find in the prototype object, then find in the prototype of prototype
+       
+        */
+
+        function MyClass(){
+
+        }
+
+        MyClass.prototype.a = 123;
+
+        var mc = new MyClass();
+        var mc2 = new MyClass();
+
+        mc.a = "mcaaa";    
+
+        // console.log(MyClass.prototype);
+        // console.log(mc.__proto__);
+        // console.log(mc2.__proto__ == MyClass.prototype);
+
+        // console.log(mc2.a);
+
+
+        // //check its own property
+        // console.log(mc.hasOwnProperty("a"));
+        // console.log(mc.hasOwnProperty("hasOwnProperty"));
+        // console.log(mc.__proto__.hasOwnProperty("hasOwnProperty"));
+
+        // //prototype object has its own prototype
+        // console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));
+
+        // console.log(mc.__proto__.__proto__);
+        // console.log(mc.__proto__.__proto__.__proto__);
+
+        //Object doesn't have a prototype
+        
+        
+        //when log, it log return value of toString()
+        console.log(mc.toString());
+
+        // mc.toString = function(){
+        //     return "hi, I'm mc";
+        // }
+
+
+        MyClass.prototype.toString = function() {
+            return this.a;
+        }
+        console.log(mc.toString());
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

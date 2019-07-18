@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /*
+           constructor function
+                1. create a new object
+                2. set this object as this
+                3. execute the codes in the function
+                4. return this object
+         */
+    //    function Person(name, age, gender){
+    //         this.name = name;
+    //         this.age = age;
+    //         this.gender = gender;
+    //         this.sayName = function(){
+    //             alert(this.name);
+    //         };
+    //    }
+    //    var p1 = Person();
+    //    console.log(p1);
+       
+    //    var p2 = new Person();
+    //    console.log(p2);
+
+    //    var p3 = new Person("bbb", 20, "female");
+    //    console.log(p3);
+    //    console.log(p3 instanceof Person);
+
+
+       //     while create a new person will create a new instance of method, it's useless
+       //     so we need to change it 
+
+
+       function Person(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            // this.sayName = fun;
+       }
+
+       //however it's unsafe when it's defined in global environment
+    //    function fun(){
+    //        alert(this.name);
+    //    }
+        Person.prototype.sayName = function (){
+            alert(this.name);
+        }
+
+       var p3 = new Person("bbb", 20, "female");
+       console.log(p3);
+       p3.sayName();
+       
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

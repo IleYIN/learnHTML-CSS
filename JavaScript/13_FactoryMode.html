@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /*
+            factory  
+         */
+        function createPerson(name, age, gender) {
+            var obj = new Object();
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            obj.sayName = function(){
+                alert(this.name);
+            };
+            return obj;
+        }
+
+        var p1 = createPerson("aaa",18,"male");
+        p1.sayName();
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

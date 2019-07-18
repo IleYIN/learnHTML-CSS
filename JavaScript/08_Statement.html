@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+
+
+
+
+        /*
+        while (true) {
+            // prompt()  Prompt box returns String type
+            //if needs a number, use +prompt()
+            var score = prompt("please enter score");
+            console.log(score);
+
+            score = parseInt(score);//or +prompt()
+
+            if (score > 100 || score < 0 || isNaN(score)) {
+                alert("not valid score!")
+            } else {
+                break;
+            }
+
+
+        }
+        switch (true) {
+            case score >= 60:
+                console.log("pass");
+                break;
+            default:
+                console.log("fail");
+                break;
+        }
+            
+        */
+
+        /*
+        var i = 1;
+        do {
+            document.write(i++ + "<br />");
+        } while (i <= 10);
+
+        for(var i=1; i<=9; i++){
+            for (var j=1; j<=i; j++){
+                document.write("<span>"+j+"*"+i+"="+i*j+"</span>")
+            }
+            document.write("<br />");
+        }
+
+
+        */
+
+        
+        
+        /*
+            break can only be used in switch or loop
+            it can stop the closest loop
+        
+            use label to identify a loop
+            break label to stop certain loop
+        */
+
+        // outer:
+        // for (var i=0; i<5;i++){
+        //    console.log("outer:"+i);  
+        //     for(var j=0;j<5;j++){
+        //         // break outer;
+        //         break;
+        //         console.log("inner:"+j);
+        //     }
+        // }
+
+
+        //continue can be used to stop one time of loop
+        
+        // for (var i=0; i<5;i++){
+        //   if(i==2){
+        //       continue;
+        //   }
+        //   console.log(i);
+        // }
+
+
+        //primer
+        //time    console.time("nameoftimer");  console.timeEnd();
+        console.time("timer");
+
+        for (var i=2; i<=10000;i++){
+            
+            var flag = true;
+
+            for(var j=2;j<=Math.sqrt(i);j++){
+                if(i%j==0){
+                    //i is not a primer
+                    flag = false;
+                    break;
+                }
+            }
+
+            if(flag){
+                console.log(i);
+            }
+        }
+
+        console.timeEnd("timer");
+    
+    // Math.sqrt(parameter)
+
+    </script>
+
+    <style type="text/css">
+        span{
+            display: inline-block;
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+
+</html>

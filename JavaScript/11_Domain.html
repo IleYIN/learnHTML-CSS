@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /*
+            Global scope
+                global object: Window
+                all global variables are attributes of window
+                all global functions are methods of window
+
+
+            Functional scope
+         */
+
+        // var a = 10;
+        // console.log(window.a);
+        // console.log(window.b);
+       
+        // all var will be stated before execution of codes, but won't be valued till execute
+        // console.log(console.log(c));
+        // var c = 456;
+        
+        // function stated by   function funtionname(){} will be created before execution of codes
+        // function stated by var won't be valued till execute, it's undefined value
+        // fun();
+        // // fun2();
+        // function fun(){
+        //     console.log("I'm a fun");
+        // }
+        // var fun2 =  function(){
+        //     console.log("I'm a fun2");
+        // }
+
+        var c = 33;
+        function fun5(){
+            console.log("c = "+c);
+            var c = 1;
+        }
+        fun5();
+      
+        // all variables without var are global variables    window.c
+        function fun6(){
+            c = 10;
+            console.log("c = "+c);
+        }
+        fun6();
+
+        //define a formal parameter means to state a variable in the function
+        function fun7(c){
+            console.log(c);
+            c = 789;
+        }
+        fun7();//undefined
+        console.log(c);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /*
+              this points to an object
+          
+         */
+        var name = "global";
+
+        function fun() {
+            console.log(this.name);
+        }
+        fun();
+
+        var obj = {
+            name: "aaa",
+            sayName: fun
+        }
+
+        console.log(obj.sayName == fun);
+
+        obj.sayName();
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

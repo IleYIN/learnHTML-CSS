@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /*
+            Array object use Number as element
+            index: start from 0
+            better for stockage
+        */
+        // var arr = new Array();
+        // arr[0] = 10;
+        // arr[1] = 33;
+        // arr[2] = 222;
+        // arr[10] = 100;
+        // console.log(arr);
+        // console.log(arr[0]);
+        // console.log(arr[5]); 
+
+        // //length will return the max index + 1
+        // console.log(arr.length); 
+
+        // //modify length, if new length > old length, new vacant area; else, delete the overflow elements
+        // arr.length = 12;
+        // console.log(arr.length);
+
+        // arr[arr.length-1] = 998;
+        // console.log(arr.length); 
+
+        // arr[arr.length] = 999;
+        // console.log(arr.length); 
+        // console.log(arr);
+
+        var arr = [];
+        console.log(typeof arr);
+
+        arr = [1,2,3,4,5];
+        console.log(arr.length);
+
+        // var arr2 = new Array(10,20,30);
+        // console.log(arr2);
+
+        // arr = [10];
+        // arr2 = new Array(10);
+        // console.log(arr.length);
+        // console.log(arr2.length);
+
+        // //array elements can be any types even objects or functions or arrays
+        // arr = ["hello", 1, true, null, undefined];
+        // console.log(arr);
+
+        // arr = [function(){alert(1)}, function(){alert(2)}];
+        // arr[0]();
+
+        // push() adds one or many elements at the end of the array and returns the new length of array
+        var result = arr.push("mmm","aaaa");
+        console.log(arr);
+        console.log(result);
+
+        //pop() delete the last element and return it
+        result = arr.pop();
+        console.log(arr);
+        console.log(result);
+
+        //unshift() add one or many elements at the front of array and return the new length of array
+        arr.unshift("111");
+        console.log(arr);
+
+        //shift() delete the first element and return it
+        result = arr.shift();
+        console.log(arr);
+        console.log(result);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
