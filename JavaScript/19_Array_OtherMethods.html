@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        var arr = ["aaa", "bbb", "ccc", "ddd", "eee"];
+        var arr2 = ["kkk", "iii","ggg"];
+        var arr3 = ["fff"];
+
+        //concat()连接不会对原数组产生影响
+        var result = arr.concat(arr2, arr3, "hhh");
+        console.log(result);
+
+        //join()将数组转换成字符串，不会对原数组产生影响
+        //join()可以指定一个字符串作为参数成为元素连接符，默认为逗号
+        result = arr.join("-");
+        console.log(result);
+        console.log(typeof result);
+
+        //reverse()反转数组会直接修改原数组
+        arr.reverse();
+        console.log(arr);
+
+        /*sort()可以对数组中的元素按照Unicode进行排序直接修改原数组 
+            即使是纯数字的数组用sort()排序还是按照Unicode编码排序，需要自己来指定排序
+            可以添加一个回调函数来指定排序规则
+                回调函数定义两个形参，浏览器会分别用数组中的元素作为实参去调用回调函数
+                使用哪个元素调用不确定，但是在数组中a一定在b前面
+                浏览器会根据回调函数的返回值来决定元素的顺序
+                如果返回一个大于0的值，则元素会交换位置
+                如果返回一个小于0的值，则元素不变位置
+                如果返回0，则认为两个元素相等，不换位置
+        */
+        // arr2.sort();
+        // console.log(arr2);
+
+        arr = [11,4,24,124,24,2];
+        arr.sort(function(a,b){
+        //    if(a>b){
+        //        return 1;
+        //    } else if(a<b){
+        //        return -1;
+        //    } else{
+        //        return 0;
+        //    }
+            return b-a; //升序a-b 降序b-a
+        });
+        console.log(arr);
+   </script>
+</head>
+
+<body>
+</body>
+
+</html>

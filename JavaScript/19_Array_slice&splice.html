@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /*
+            slice从数组中提取元素
+            arrayObject.slice(start index,end index)
+            包含开始位，不含结束位
+            该方法不会改变原方法 而是返回新数组
+
+            arrayObject.slice(start)
+        */
+        var arr = ["aaa","bbb","ccc","ddd","eee"];
+        // var result = arr.slice(0,2);
+        // var result = arr.slice(2);
+        var result = arr.slice(1, -2);
+        // 负数表示从后往前计数
+        // console.log(result);
+
+
+        /*
+            splice()删除或插入数组中指定元素，会改变原数组，且返回删除了的元素
+            splice(start index,delete number)
+            splice(start index,delete number,"插入开始位索引前面新添加元素")
+        */
+        // result = arr.splice(1,2);
+        // result = arr.splice(1,2,"hhh","ggg","kkk","lll");
+        result = arr.splice(1,0,"hhh","ggg","kkk","lll");
+
+
+        console.log(result);
+        console.log(arr);
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
