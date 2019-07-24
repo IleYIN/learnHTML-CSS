@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+    /*
+        call() apply() function object method
+
+        both will execute function
+        can transit an object as the first parameter, this = parameter
+    
+        call() can transit the real parameter after the object
+        apply() need to package the real parameter then transit
+    */
+    function fun(a,b){
+        alert("I'm a fun "+this.name);
+        console.log("a="+a);
+        console.log("b="+b);
+    }    
+
+    // fun.call();  this is "window"
+    // fun.apply(); this is "window"
+
+    var obj = {
+        name:"obj",
+        sayName:function(){
+            alert(this.name);
+        }
+    };
+
+    var obj2 = {
+        name:"obj2",
+    };
+    // fun.call(obj);
+    // fun.apply(obj);
+    // obj.sayName.apply(obj2);
+
+    // fun.call(obj,2,3);
+    fun.apply(obj,[2,3]);
+   </script>
+</head>
+
+<body>
+</body>
+
+</html>

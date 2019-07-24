@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /*
+            Date
+                getDate() return day
+                getDay() return weekday 0-sunday 
+                getMonth() return month 0-January 11-December
+                getFullYear() return year
+                getTime() return Timestamp   ms of time since 01/01/1970 00:00:00
+        */
+        var d = new Date();
+        console.log(d);
+
+        var d2 = new Date("12/03/2016 10:45:30");
+        console.log(d2);
+
+        var date = d2.getDate();
+        console.log(date);
+        
+        var day = d2.getDay();
+        console.log(day);
+        
+        var time = d2.getTime();
+        console.log(time);
+
+        var d3 = new Date("1/1/1970 0:0:0");
+        time = d3.getTime();
+        console.log(time);//time zone
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
