@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+
+         //don't use packaging class manually!!!!!!! It's about the bottom layer
+
+        /*
+            String()
+
+            Number()
+
+            Boolean()
+
+        */
+
+        var num = new Number(3);
+        var str = new String(3);
+        var bool = new Boolean(true);
+
+        num.hello = "aaaa";
+
+        console.log(typeof num);
+        console.log(num.hello);
+        
+        var num2 = 3;
+        console.log(num == num2);
+        console.log(num === num2);
+        
+        //object to boolean is always true       new Boolean(false)  turn to true
+        //don't use ways above manually!!!!!!!
+
+        var s = 123;
+        s = s.toString();// 123 -> Number(123) ->toString()
+        
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
