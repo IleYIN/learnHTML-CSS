@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var items = document.getElementsByName("items");
+
+            //全选
+            var checkeAllBtn = document.getElementById("checkedAllBtn");
+            checkeAllBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    //w3c文档查询input checkbox对象属性 checked
+                    // alert(items[i].checked);
+                    items[i].checked = true;
+                }
+                checkedAllBox.checked = true;
+            }
+
+            //全不选
+            var checkeNoBtn = document.getElementById("checkedNoBtn");
+            checkeNoBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = false;
+                }
+                checkedAllBox.checked = false;
+            }
+
+            //反选
+            var checkeDevBtn = document.getElementById("checkedRevBtn");
+            checkeDevBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = !items[i].checked;
+                }
+
+                for (var j = 0; j < items.length; j++) {
+                    if (!items[j].checked) {
+                        checkedAllBox.checked = false;
+                        // console.log(items[j].value)
+                        break;
+                    } else {
+                        checkedAllBox.checked = true;
+                    }
+                }
+            }
+
+            //提交
+            var sendBtn = document.getElementById("sendBtn");
+            sendBtn.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].checked) {
+                        alert(items[i].value);
+                    }
+                }
+            }
+
+            //全选/全不选 多选框
+            var checkedAllBox = document.getElementById("checkedAllBox");
+            checkedAllBox.onclick = function () {
+                //如果函数是以一个对象的方法来调用，则this就是该对象
+                //事件的响应函数，响应函数是给谁绑定的，this就是谁
+                for (var i = 0; i < items.length; i++) {
+                    // items[i].checked = checkedAllBox.checked;
+                    items[i].checked = this.checked;
+                }
+            }
+
+            //items
+            for (var i = 0; i < items.length; i++) {
+                items[i].onclick = function () {
+                    // console.log(this.checked);
+
+                    for (var j = 0; j < items.length; j++) {
+                        if (!items[j].checked) {
+                            checkedAllBox.checked = false;
+                            // console.log(items[j].value)
+                            break;
+                        } else {
+                            checkedAllBox.checked = true;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <form method="post" action="">
+        你爱好的运动是？<input type="checkbox" id="checkedAllBox" /> 全选/全不选
+        <br />
+        <input type="checkbox" name="items" value="足球" />足球
+        <input type="checkbox" name="items" value="羽毛球" />羽毛球
+        <input type="checkbox" name="items" value="乒乓球" />乒乓球
+        <input type="checkbox" name="items" value="篮球" />篮球
+        <br />
+        <input type="button" id="checkedAllBtn" value="全  选" />
+        <input type="button" id="checkedNoBtn" value="全不选" />
+        <input type="button" id="checkedRevBtn" value="反  选" />
+        <input type="button" id="sendBtn" value="提  交" />
+    </form>
+
+</body>
+
+</html>

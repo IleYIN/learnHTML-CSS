@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+</head>
+
+<body> 
+
+    <!-- 结构和行为耦合 不推荐使用如下方式 -->
+    <!-- <button id="btn" onclick="alert('I\'m alert')">I'm a button</button> -->
+    <!-- <button id="btn" ondblclick="alert('I\'m alert')">I'm a button</button> -->
+    <!-- <button id="btn" onmousemove="alert('I\'m alert')">I'm a button</button> -->
+    <button id="btn">I'm a button</button>
+    <script type="text/javascript">
+        /**
+         * DOM Document Object Model
+         * 文档表示整个html网页文档
+         * 对象是把html文档每一部分都转换成一个对象
+         * 模型是使用模型来表示对象之间的关系 DOM树
+         * Node节点：
+         *                                  nodeName    |  nodeType  |  nodeValue
+         *      文档节点：整个html文档        #document   |     9      |    null  
+         *      元素节点：html标签             标签名     |     1      |    null
+         *      属性节点：元素的属性            属性名    |     2      |    属性值
+         *      文本节点：html标签中的内容      #text     |     3      |   文本内容
+         *  
+         * 浏览器为我们提供文档节点对象  这个对象是window属性
+         *
+         */
+
+
+        // console.log(document);
+        // var btn = document.getElementById("btn");
+
+        // console.log(btn.innerHTML);
+        // btn.innerHTML = "I change";
+        // console.log(btn.innerHTML);
+        
+
+        /**
+         * 
+         * 事件：就是用户和浏览器之间的交互行为 比如点击按钮、鼠标移动、关闭窗口
+         * 可以为按钮的对应事件绑定处理函数的形式来响应事件
+         * 当事件触发时调用函数
+         */
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+            alert("I'm alert");
+        };
+        
+        /**
+         *  通过document对象获取
+            getElementById()
+            getElementsByTagName() 通过标签名获取一组元素节点对象
+            getElementsByName() 通过name属性获取一组元素节点对象
+
+            innerHTML用于获取标签内部的HTML代码，对于自结束标签，这个属性没有意义
+            如果需要读取元素节点属性，直接使用元素.属性名，如inputs[i].value
+            但是注意class属性不能采取这种方式，读取class属性要使用元素.className
+         */
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script type="text/javascript">
+        //onload事件会在整个页面加载完成后再触发,为window绑定一个onload事件
+        //onload确保代码执行时所有DOM对象已经加载完毕了
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                alert("hello");
+            };
+        };
+
+
+    </script>
+</head>
+
+<body> 
+    <!-- 将js代码写在下部是为了保证页面执行后再执行js代码 -->
+    <!-- <script>
+    </script> -->
+    <button id="btn">I'm a button</button>
+</body>
+
+</html>

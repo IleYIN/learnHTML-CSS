@@ -11,13 +11,56 @@
         /*
            string is char array
         */
-        var str = "abcdef";
+        var str = "abcdbef";
         console.log(str[2]);
         console.log(str.charAt(2));
         console.log(str.charCodeAt(2));//return unicode
 
         console.log(String.fromCharCode(20013));
         console.log(String.fromCharCode(0x2692));
+
+        //concat() same as +
+        console.log(str.concat("-aa-","bb-"));
+
+        //indexof()返回第一次出现的索引，没有则返回-1
+        console.log(str.indexOf("b"));
+        console.log(str.indexOf("t"));
+        console.log(str.indexOf("b",0));
+        console.log(str.indexOf("b",3));//指定开始查找位置
+
+        console.log(str.lastIndexOf("b"));//从后往前找
+
+        /**
+         * slice(包括开始位置索引,不包括结束位置索引) 截取内容
+         * 如果省略第二个，则会截取到后边所有
+         * 负数表示从后边开始算
+         */
+        console.log(str.slice(1,2));
+        console.log(str.slice(1,-1));
+    
+        //substring(包括开始位置索引,不包括结束位置索引) 截取内容 不接受负值默认是0
+        //若第二个小于第一个则自动换位置
+        console.log(str.substring(1,2));
+        console.log(str.substring(2,1));
+        
+        //substr(开始位置索引,截取长度)
+        console.log(str.substr(3,2));
+        
+        /**
+         * split() 拆分数组
+         */
+         str = "abc,bcd,EFG,hij";
+         var result = str.split(",");
+         console.log(Array.isArray(result));
+         console.log(result.length);
+         console.log(result);
+
+         result = str.split("");
+         console.log(result)
+
+         console.log(str.toUpperCase());
+         console.log(str.toLowerCase());
+         
     </script>
 </head>
 

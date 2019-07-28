@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        /**
+         * split() 拆分 不需要写g
+         */
+        var str = "1a2b3c4d5e6f";
+        var result = str.split(/[A-z]/);
+        console.log(result);
+        
+        /**
+         * search() 搜索字符中是否含有指定内容
+         * 无法全局匹配 设置g也没用
+         */
+        str = "hello afc hello abc aec";
+        result = str.search(/a[bef]c/);
+        console.log(result);
+        
+        result = str.search("abcd");
+        console.log(result);
+        
+        /**
+         * match()
+         * 提取符合条件的内容
+         */
+         str = "1a2b3Caa4DA6f";
+         result = str.match(/[a-z]/gi);//或ig或A-z
+         console.log(result);
+         
+         /**
+          * replace(被替换的内容,新的内容)
+          * 默认只会替换第一个
+          */
+         result = str.replace(/a/gi,"@_@");
+         console.log(result);
+         
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
