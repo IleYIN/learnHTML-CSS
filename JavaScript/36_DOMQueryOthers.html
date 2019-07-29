@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8" />
+    <title></title>
+    <script type="text/javascript">
+
+        window.onload = function () {
+            // //获取body标签
+            // var body = document.getElementsByTagName("body")[0];
+            // console.log(body);
+
+            // //body属性保存body的引用
+            // var body2 = document.body;
+            // console.log(body2);
+
+            // var de = document.documentElement;
+            // console.log(de);//html根标签
+
+            // var all = document.all;//all表示所有元素
+            // console.log(all.length);
+            // for (var i = 0; i < all.length; i++) {
+            //     console.log(all[i]);
+            // }
+            // //下面的也是all
+            // all = document.getElementsByTagName("*");
+            // console.log(all.length);
+
+            // /*
+            //    根据元素的class属性值查询一组元素节点对象
+            //    getElementsByClassName() IE9以上才支持
+            // */
+            // var box1 = document.getElementsByClassName("box1");
+            // console.log(box1.length);
+
+            // var divs = document.getElementsByTagName("div");
+            // console.log(divs.length);
+
+            // // document.querySelector()可以根据CSS选择器查询一个元素节点对象
+
+            // var div = document.querySelector(".box1 div");
+
+            // //querySelector()使用该方法只能返回满足条件的第一个元素
+            // var box1 = document.querySelector(".box1");
+            // console.log(div.innerHTML);
+            // console.log(box1.innerHTML);
+
+            // //querySelectorAll()永远返回一个数组
+            // var box1s = document.querySelectorAll(".box1");
+            // console.log(box1s.length);
+
+
+
+                
+            /*
+             定义一个函数专门用来为指定元素单击响应函数
+            */
+            function myClick(idStr, fun) {
+                var btn = document.getElementById(idStr);
+                btn.onclick = fun;//回调函数
+            }
+
+
+            /*  
+                DOM增删改
+
+            */
+
+            myClick("btn01", function () {
+                // //document.createElement(标签名);创建元素节点
+                // var li = document.createElement("li");
+
+                // //document.createTextNode(文本内容) 创建文本几点对象
+                // var gzText = document.createTextNode("广州")
+
+                // //appendChild(子节点) 向一个父节点中添加一个新的子节点
+                // li.appendChild(gzText);
+
+                var city = document.getElementById("city");
+                // city.appendChild(li);
+
+
+                //或者以下方法添加 
+                // city.innerHTML += "<li>广州</li>";
+
+
+                //一般两种方式结合使用,最推荐使用，不会影响其它li
+                var li = document.createElement("li");
+                li.innerHTML = "广州";
+                city.appendChild(li);
+
+            });
+
+
+            myClick("btn02", function () {
+                //document.createElement(标签名);创建元素节点
+                var li = document.createElement("li");
+
+                //document.createTextNode(文本内容) 创建文本几点对象
+                var gzText = document.createTextNode("深圳")
+
+                //appendChild(子节点) 向一个父节点中添加一个新的子节点
+                li.appendChild(gzText);
+
+                var bj = document.getElementById("bj");
+                var city = document.getElementById("city");
+
+                //父节点.insertBefore(新节点，旧节点)
+                city.insertBefore(li,bj);
+            });
+
+
+            
+            myClick("btn03", function () {
+                //document.createElement(标签名);创建元素节点
+                var li = document.createElement("li");
+
+                //document.createTextNode(文本内容) 创建文本几点对象
+                var gzText = document.createTextNode("深圳")
+
+                //appendChild(子节点) 向一个父节点中添加一个新的子节点
+                li.appendChild(gzText);
+
+                var bj = document.getElementById("bj");
+                var city = document.getElementById("city");
+
+                //父节点.replaceChild(新节点，旧节点)
+                city.replaceChild(li,bj);
+            });
+
+
+            myClick("btn04", function () {
+
+                var bj = document.getElementById("bj");
+                // var city = document.getElementById("city");
+
+                //父节点.removeChild(新节点，旧节点)
+                // city.removeChild(bj);
+
+                //更常用下面这种remove
+                bj.parentNode.removeChild(bj);
+
+            });
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box1">
+        我是第一个box1
+        <div>llalala</div>
+    </div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li id="sh">上海</li>
+        <li id="tj">天津</li>
+    </ul>
+
+    <button id="btn01">btn01-add</button>
+    <button id="btn02">btn02-insert</button>
+    <button id="btn03">btn03-replace</button>
+    <button id="btn04">btn03-remove</button>
+
+</body>
+
+
+</html>
