@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: red !important;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                
+                /*
+                    通过JS修改元素的样式
+                    语法：元素.style.样式名 = 样式值
+                    注意如果CSS的样式名中含有- 需要改成驼峰命名法
+
+                    通过style属性设置的样式是内联样式，优先级高
+                    但是如果样式中写了 !important 此样式优先级最高，JS无法修改
+                
+                */
+                box1.style.width = "300px";
+                box1.style.height = "100px";
+                box1.style.backgroundColor = "yellow";
+            };
+
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                //读取box1的样式只能读到内联样式，无法读取样式表中的样式
+                alert(box1.style.width);
+            }
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <button id="btn01">click me</button>
+    <button id="btn02">click me2</button>
+    <div id="box1"></div>
+
+</body>
+
+
+</html>

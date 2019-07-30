@@ -32,7 +32,22 @@
             for (var i = 0; i < allA.length; i++) {
                 allA[i].onclick = delA;
                 // allA[i].onclick = function () {
-                //     // alert(this);
+                //     // alert(this); 
+
+                    /*  
+                        this是allA[i]，但
+                        alert(this==allA[i]); 得到false
+                        alert(allA[i]); 得到undefined
+                        alert(i);   发现i是3
+
+                        for循环会在页面加载后立即执行
+                        而响应函数在超链接点击时才会执行
+                        响应函数执行时，for循环早已执行完毕
+
+                    */
+
+
+
 
                 //     var tr = this.parentNode.parentNode;
 
@@ -59,6 +74,7 @@
                 var salary = document.getElementById("salary").value;
 
 
+                /*
                 var tr = document.createElement("tr");
                 var nameTd = document.createElement("td");
                 var emailTd = document.createElement("td");
@@ -84,13 +100,38 @@
                 tr.appendChild(aTd);
 
                 a.href = "javascript:;";//使其显示为超链接
+                */
+
+                //第二种方法建议使用
+                var tr = document.createElement("tr");
+                tr.innerHTML = "<td>" + name + "</td>" +
+                    "<td>" + email + "</td>" +
+                    "<td>" + salary + "</td>" +
+                    "<td><a href='javascript:;'>Delete</a></td>";
 
                 var employeeTable = document.getElementById("employeeTable");
                 // employeeTable.appendChild(tr);
+                //tbody是浏览器自动加的
                 var tbody = employeeTable.getElementsByTagName("tbody")[0];
                 tbody.appendChild(tr);
 
+                /*
+                 不建议此方法 会换掉整个tbody 性能不好
+                tbody.innerHTML += "<tr>" +
+                    "<td>" + name + "</td>" +
+                    "<td>" + email + "</td>" +
+                    "<td>" + salary + "</td>" +
+                    "<td><a href='javascript:;'>Delete</a></td>"
+                    + "</tr>";
+                */
+
+
+                //第二、三种方法加上a的定义 
+                var a = tr.getElementsByTagName("a")[0];
+
+                //加上a的响应
                 a.onclick = delA;
+
 
             }
 
