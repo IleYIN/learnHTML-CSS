@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+       
+       #info{
+           width: 300px;
+           height: 300px;
+           background-color: #bfa;
+           overflow: auto;
+       }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            /*
+                onscroll  
+                    this event will be activated when scroll bar scrolls
+            */
+
+            var info = document.getElementById("info");
+            var inputs = document.getElementsByTagName("input");
+
+            info.onscroll = function(){
+                //check if scroll bar is at the end
+                if(info.scrollHeight - info.scrollTop == info.clientHeight){
+                    inputs[0].disabled = false;//true means diabled
+                    inputs[1].disabled = false;
+                }
+            };
+        };
+    </script>
+
+</head>
+
+<body>
+
+    <h3>welcome to register</h3>
+    <p id="info">
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+        Please read all the registration agreements <br/>
+
+    </p>
+    <input type="checkbox" disabled="disabled"/> I've read all
+    <input type="submit" value="register" disabled="disabled"/>
+</body>
+
+
+</html>

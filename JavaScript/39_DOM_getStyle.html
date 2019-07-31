@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        #box1 {
+            /* width: 200px; */
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function () {
+                /*
+                    to read current showing style, 
+                    if it's not been settled, then return the default value of this style
+                    but only IE support this method!!!
+
+                    element.currentStyle.stylename
+                */
+                // alert(box1.currentStyle.width);
+                // alert(box1.currentStyle.backgroundColor);
+
+
+                /*
+                    Other browser can use getComputedStyle()
+                    it'a method of window
+                    it needs two parameters: the element whose style we want to get; a pseudo element, often is null
+
+                    it returns an object which encapsule the style corresponding
+                    if a style has not been settled, it will return a concrete value not a default value
+
+                    this method does not support IE8 and under IE8
+                */
+                // var obj = getComputedStyle(box1,null);
+                // alert(obj.width);
+
+                //ATTENTION these two methods are only readable, can't use them to modify, must use style to modify
+
+                function getStyle(obj, name) {
+                    // getComputedStyle(obj, null).name;//cannot write like this, name is a variable
+                    
+                    if(window.getComputedStyle){ 
+                        /*
+                            if browser has this method,
+                            here we use window.getComputedStyle which is an attribute
+                            not use getComputedStyle which is a variable, if variable is not found, it will raise un error
+                        */
+                        
+                        return getComputedStyle(obj, null)[name];
+                    } else {
+                        return obj.currentStyle[name];
+                    }
+
+                    //or 
+                    // return window.getComputedStyle ? getComputedStyle(obj, null)[name] : obj.currentStyle[name];
+                }
+
+                alert(getStyle(box1, "width"));
+            };
+        };
+    </script>
+
+</head>
+
+<body>
+    <button id="btn01">click me</button>
+    <div id="box1" style="background-color: aqua"></div>
+
+</body>
+
+
+</html>

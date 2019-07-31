@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+            padding: 10px;
+            border: 10px solid yellow;
+        }
+
+        #box2 {
+
+            height: 200px;
+            background-color: aqua;
+
+            padding: 100px;
+
+        }
+
+        #box4 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            overflow: auto;
+        }
+
+        #box5 {
+            width: 450px;
+            height: 600px;
+            background-color: yellow;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var box4 = document.getElementById("box4");
+
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function () {
+                /*
+                    clientWidth
+                    clientHeight
+
+                    return virtual width and height without unit like px
+                    it contains the padding area and the content area
+
+                    these attributes are only readable, cannot use to modify
+                */
+                // alert(box1.clientWidth);
+
+                /*
+                    offsetWidth
+                    offsetHeight
+
+                    total size containing the content area, padding and border
+                */
+                // alert(box1.offsetWidth);
+
+
+                /*
+                    offsetParent to get current element's positioning parent element
+                    it will get the closet ancestor element which has open the position (position value is not static)
+                */
+
+                // var op = box1.offsetParent;
+                // alert(op.id);
+
+                /*
+                    offsetLeft - horizontal offset relative to its parent element
+                    offsetTop - vertical offset relative to its parent element
+                */
+                // alert(box1.offsetLeft);
+
+
+                /*
+                    scrollWidth
+                    scrollHeight  get scroll zone size
+                */
+                // alert(box4.clientHeight);
+                // alert(box4.scrollHeight);
+
+                /*
+                    scrollLeft
+                    scrollTop
+
+                    get scroll position
+                */
+                // alert(box4.scrollTop);
+
+                alert(box4.clientHeight);
+                alert(box4.scrollHeight);
+
+                /*
+                    when scrollHeight - scrollTop == clientHeight
+                    it means the vertical scroll bar is at the ends
+
+                    see 40exercise
+                */
+                alert(box4.scrollHeight - box4.scrollTop);
+            };
+        };
+    </script>
+
+</head>
+
+<body id="body">
+    
+    <button id="btn01">click me</button>
+    <div id="box4">
+        <div id="box5">
+        </div>
+    </div>
+
+    <br /><br />
+    <br /> <br />
+
+    <!-- <div id="box3" style="position: relative;"> -->
+    <div id="box3">
+        <!-- <div id="box2" style="position: relative;"> -->
+        <div id="box2">
+            <div id="box1"></div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
