@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            /*
+                Drag
+                    1.mouse click -- onmousedown
+                    2.mouse move -- onmousemove
+                    3.mouse release -- onmouseup
+            */
+
+            var box1 = document.getElementById("box1");
+            box1.onmousedown = function () {
+
+                /*
+                    for IE8 drag problem use
+                    box1.setCapture(); to capture all events of the next step
+
+                     setCapture() or releaseCapture() only works in IE,
+                      it won't raise error in firefox
+                       but it will raise error in chrome
+                */
+                // if (box1.setCapture) {
+                //     box1.setCapture();
+                // }
+
+                //or use follow form, if box1.setCapture is true, execute next, else execute not
+                box1.setCapture && box1.setCapture();
+
+
+                /*
+                    div offset       mouse.clientX - element.offsetLeft
+                                     mouse.clientY - element.offsetTop   
+                */
+                var ol = event.clientX - box1.offsetLeft;
+                var ot = event.clientY - box1.offsetTop;
+
+                document.onmousemove = function (event) {
+                    event = event || window.event;
+
+                    var left = event.clientX - ol;
+                    var top = event.clientY - ot;
+
+                    box1.style.left = left + "px";
+                    box1.style.top = top + "px";
+
+                };
+
+
+
+                // box1.onmouseup = function () {
+                //     //problem: if there's another element, it risks release mouse over another element
+                //     document.onmousemove = null;
+                // };
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    // alert("mouse release");
+
+                    //should cancel this event when it's useless
+                    document.onmouseup = null;
+
+
+                    //for IE8,
+                    if (box1.releaseCapture) {
+                        box1.releaseCapture();
+                    }
+                };
+
+
+                /*
+                     when drag contents in a page, browser will by default search contents
+                     this will cause exception of drag function
+                    
+                     To cancel this default acivity,
+                     can use return false to cancel it in the onmousedown event of box1
+             
+                    but it doesn't work for IE8
+                 */
+                return false;
+            };
+
+        };
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+    xxxxxxxxxxxx
+
+    <div id="box1">
+    </div>
+    <div id="box2"></div>
+</body>
+
+
+</html>

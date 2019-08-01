@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+       
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var u1 = document.getElementById("u1");
+
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function () {
+                var li = document.createElement("li");
+                li.innerHTML = "<a href='javascript:;' class='link'>new link</a>";
+
+                u1.appendChild(li);
+
+                // var a = li.getElementsByTagName("a")[0];
+                // // console.log(a.innerHTML);
+                // a.onclick = function(){
+                //     alert("I'm a new reaction");
+                // };
+            }
+
+
+            var allA = document.getElementsByTagName("a");
+
+            // for(var i=0; i<allA.length; i++){
+            //     allA[i].onclick = function(){
+            //         alert("I'm a reaction");
+            //     };
+            // }
+
+            /*
+                we hope we need only one time to bind the event
+                even though the elements are added afterwards
+
+                we can try to bind the common ancestor element as we can use buddle method
+                it's called event delegation
+
+
+                it needs to add a judgement to see if it's the expected element
+
+                event.target refers to the object that activates this event
+
+
+            */
+            u1.onclick = function (event) {
+                event = event || window.event;
+                // alert(event.target);
+              
+
+                // if (event.target.className == "link") {
+                //     //there's still a problem, if have more than one className 
+                //     alert("I'm ul onclick reaction");
+                // }
+
+                // console.log(event.target.className);
+                var reg = /\blink\b/;
+                // console.log(reg.test(event.target.className));
+                
+                if(reg.test(event.target.className)){
+                    alert("I'm ul onclick reaction");
+                }
+              
+            };
+        };
+    </script>
+
+</head>
+
+<body>
+    <button id="btn01">add a</button>
+    <ul id="u1" style="background-color: #bfa">
+        <li>
+            <p>I'm p</p>
+        </li>
+        <li><a href="javascript:;" class="link hello">link1</a></li>
+        <li><a href="javascript:;" class="link">link2</a></li>
+        <li><a href="javascript:;" class="link">link3</a></li>
+    </ul>
+</body>
+
+
+</html>

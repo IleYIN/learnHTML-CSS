@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+
+            btn01.onclick = function () {
+                alert(1);
+            };
+
+            btn02.onclick = function () {
+                alert(2);
+            };
+
+            /*
+                when use setCapture() for one element,
+                all events of the next step will be captured by this element, just as click this element
+
+                setCapture() only works in IE,
+                it won't raise error in firefox
+                but it will raise error in chrome
+                so add  btn01.setCapture &&   to judge if it has this function
+            */
+            btn01.setCapture && btn01.setCapture();
+
+        };
+
+    </script>
+
+</head>
+
+<body>
+    <button id="btn01">btn1</button>
+    <button id="btn02">btn2</button>
+
+</body>
+
+
+</html>

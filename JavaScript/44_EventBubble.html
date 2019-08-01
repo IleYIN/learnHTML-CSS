@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+
+        #s1{
+            background-color: yellow;
+        }
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var box1 = document.getElementById("box1");
+            var s1 = document.getElementById("s1");
+
+
+            /*  
+                Event bubble
+                    when child element event is activated, ancestor element will be activated
+           
+                It's useful such as 43ex we add a div, when mouse is on the div, it transmits to the doucment
+
+                If want to cancel bubble, can use
+                event.cancelBubble = true;
+
+            */
+            s1.onclick = function(){
+                alert("I'm span onclick reaction");
+                event.cancelBubble = true;
+            };
+          
+            box1.onclick = function(){
+                alert("I'm box1 onclick reaction");
+                event.cancelBubble = true;
+            };
+           
+            document.body.onclick = function(){
+                alert("I'm body onclick reaction");
+            };
+        };
+    </script>
+
+</head>
+
+<body>
+    <div id="box1">I'm box1
+        <span id="s1">I'm span</span>
+    </div>
+</body>
+
+
+</html>

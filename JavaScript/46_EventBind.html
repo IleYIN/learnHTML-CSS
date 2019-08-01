@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var btn01 = document.getElementById("btn01");
+
+            // btn01.onclick = function(){
+            //     alert(1);
+            // };
+
+            /*
+                object.event = function(){
+                    xxxxx
+                }
+                this way only the last binding reaction function works
+                cannot bind several functions
+            */
+            // btn01.onclick = function(){
+            //     alert(2);
+            // };
+
+            /*
+                another method: 
+                    object.addEventListener()
+                        parameters: 
+                          1. eventString without on
+                          2. callback function
+                          3. boolean often false - 是否在捕获阶段触发  Whether to trigger during the capture phase
+                
+                it allows to bind several functions
+                it doesn't support IE8
+
+
+                addEventListener()    this is the object
+           */
+
+            // btn01.addEventListener("click", function(){
+            //     alert(1);
+            // }, false);
+            // btn01.addEventListener("click", function(){
+            //     alert(2);
+            // }, false);
+
+
+            /*
+                IE8 can use attachEvent()
+                     parameters: 
+                          1. eventString with on
+                          2. callback function
+
+                it allows to bind several functions, 
+                but the order of functions are opposite to addEventLister()
+
+                but it doesn't support chrome firefox or IE9+
+
+
+                attachEvent()   this is window
+            */
+            // btn01.attachEvent("onclick", function () {
+            //     alert(1);
+            // }, false);
+            // btn01.attachEvent("onclick", function () {
+            //     alert(2);
+            // }, false);
+
+
+            function bind(obj, eventStr, callback) {
+
+                if (obj.addEventListener) {
+                    //this is obj
+                    obj.addEventListener(eventStr, callback, false);
+                } else {
+
+                    //IE8 this is window
+                    /* this depends on the style of call back
+                        call back as function style, this is window
+                        can use callback.call(obj) to change this
+                        but here is browser to use the callback function
+                    */
+
+                    obj.attachEvent("on" + eventStr, function(){
+                        // in an anonymous function, call callback, here is us to use the callback function, so we can use callback.call(obj) to change this
+                        callback().call(obj);
+                    });
+
+                }
+            };
+
+            bind(btn01, "click", function(){
+                alert(this);
+            });
+            bind(btn01, "click", function(){
+                alert(this);
+            });
+        };
+    </script>
+
+</head>
+
+<body>
+    <button id="btn01">click me</button>
+</body>
+
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            
+            /* if want to set offset position like (box1.style.left), must open position */
+            position: absolute;
+        }
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function(event){
+                event = event || window.event;
+
+
+                /*
+                    clientX and clientY are relative to the position of current virtual window  
+
+                    div offset is relative to the whole page
+
+                    pageX and pageY can get the mouse position relative to the page
+                        but these do not support IE8 
+
+                */
+
+                //settle IE8
+                /*
+                    chrome thinks scroll bar is body's, can use body.scrollTop to get it
+                    firefox and IE think scroll bar is html's, can use documentElement.scrollTop to get it
+                */
+                // var st = document.body.scrollTop;
+                // var st = document.documentElement.scrollTop;
+                var st = document.body.scrollTop || document.documentElement.scrollTop;
+                var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+                // console.log(st);
+
+                var left = event.clientX;
+                var top = event.clientY;
+
+                // var left = event.pageX;
+                // var top = event.pageY;
+
+                //set offset of div to make it the same as mouse
+                box1.style.left = left+sl+"px";
+                box1.style.top = top+st+"px";
+            };
+
+            var box2 = document.getElementById("box2");
+            box2.onmousemove = function(event) {
+                event = event || window.event;
+                event.cancelBubble = true;
+            }
+            
+        };
+    </script>
+
+</head>
+
+<body style="height: 1000px; width: 2000px">
+    <div id="box2" style="width: 500px; height: 500px; background-color: #bfa;"></div>
+    <div id="box1"></div>
+</body>
+
+
+</html>
