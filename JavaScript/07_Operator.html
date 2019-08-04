@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title></title>
-  
+
     <script type="text/javascript">
         // + - * / %
         /*
@@ -26,44 +26,44 @@
             a = +a can make a transfer to a number      +"2" --> 2
         */
 
-      
+
 
         var a = 1;
-        console.log("a = "+ a);
-       
-        console.log("a++ = "+ a++);
-        console.log("a = "+ a);
+        console.log("a = " + a);
 
-        console.log("++a = "+ ++a);
-        console.log("a = "+ a);
- 
-          /*
-            a = !!a  true  transfer a to a boolean
+        console.log("a++ = " + a++);
+        console.log("a = " + a);
 
-            && if not boolean, then transfer it to boolean and return the original value:
-            true && (true or false) returns the latter one such as 5 && 6 returns 6
-            false && (true or false) returns the former one such as NaN && 0 returns NaN
+        console.log("++a = " + ++a);
+        console.log("a = " + a);
 
+        /*
+          a = !!a  true  transfer a to a boolean
 
-            || if not boolean, then transfer it to boolean and return the original value:
-            true || (true or false) returns the former one such as -1 || 6 returns -1
-            false || (true or false) returns the latter one such as "" || 0 returns 0
+          && if not boolean, then transfer it to boolean and return the original value:
+          true && (true or false) returns the latter one such as 5 && 6 returns 6
+          false && (true or false) returns the former one such as NaN && 0 returns NaN
 
 
-            < > = >= <=
-            Any value compare with NaN returns false
-            Any not number will be transfered to number to compare 
-            But if all two values are String, it won't change String to number but compare the Unicode of String
-            such as  "abc" < "c" returns true  "bbc" < "b" returns true   "11" < "5" returns true
-            "11" < +"5" returns false
-            must transfer before comparing two Strings of numbers
+          || if not boolean, then transfer it to boolean and return the original value:
+          true || (true or false) returns the former one such as -1 || 6 returns -1
+          false || (true or false) returns the latter one such as "" || 0 returns 0
 
-        */
+
+          < > = >= <=
+          Any value compare with NaN returns false
+          Any not number will be transfered to number to compare 
+          But if all two values are String, it won't change String to number but compare the Unicode of String
+          such as  "abc" < "c" returns true  "bbc" < "b" returns true   "11" < "5" returns true
+          "11" < +"5" returns false
+          must transfer before comparing two Strings of numbers
+
+      */
 
         // Unicode of 1: 0031
         // console.log("\u0031");
         // console.log("\u2620");
-        
+
 
         /*
             == compare 
@@ -75,7 +75,11 @@
 
                 NaN is equal to nothing, so  NaN == NaN returns false
                 To judge if it's NaN, use isNaN(parameter)
-        */
+                 对象为true
+                非零数字为true
+                非空字符串为true
+                其他为false
+                */
 
         var g = NaN;
         console.log(isNaN(g)); //true
@@ -96,14 +100,14 @@
         var a = 300;
         var b = 250;
         var c = 745;
-        var max = a > b ?(a > c ? a : c) : (b > c ? b : c);
+        var max = a > b ? (a > c ? a : c) : (b > c ? b : c);
 
         console.log(max);
     </script>
 </head>
 
 <body>
-    
+
     <!-- 不间断空格（non-breaking space）
         HTML 中的常用字符实体是不间断空格(&nbsp;)
         一个汉字要占2个英文字符的大小，空2个汉字的位置就需要加4个“&nbsp; ”
@@ -116,7 +120,7 @@
     
         <h1>&#9760;</h1>
     -->
-    
+
 
 </body>
 

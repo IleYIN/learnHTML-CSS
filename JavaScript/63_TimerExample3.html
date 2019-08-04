@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+
+            /* 确保IE浏览器里left top不是auto!!!! 以方便计算*/
+            left: 0;
+            top: 50px;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+
+            /* 确保IE浏览器里left top不是auto!!! 以方便计算*/
+            left: 0;
+            top: 200px;
+        }
+    </style>
+
+
+    <script type="text/javascript" src="js/tools.js"></script>
+    <script type="text/javascript">
+
+        var timer;
+
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var btn03 = document.getElementById("btn03");
+            var btn04 = document.getElementById("btn04");
+
+            btn01.onclick = function () {
+                move(box1, "left", 800, 8);
+            };
+
+            btn02.onclick = function () {
+                move(box1, "left", 0, 8);
+            };
+
+            btn03.onclick = function () {
+                move(box2, "left", 800, 20);
+            };
+
+            btn04.onclick = function () {
+                // move(box2, "width", 800, 30);
+                // move(box2, "top", 10, 3);
+                // move(box2, "height", 800, 30);
+                move(box2, "height", 300, 30, function () {
+                    // alert("execution finishes")
+                    move(box2, "width", 400, 20, function () {
+                        move(box2, "top", 0, 1, null);
+                    })
+                });
+
+            }
+        };
+
+        // /* 
+        //     speed 正负值应该由函数内部来处理
+        //     attr 要执行的动画样式 比如left top width height
+        //     callback 回调函数 动画执行完毕以后执行
+        // */
+        // function move(obj, attr, target, speed, callback) {
+
+        //     //关闭上一个定时器
+        //     clearInterval(obj.timer);
+
+        //     /* 判断速度的正负值 */
+        //     var current = parseInt(getStyle(obj, attr));
+        //     if (current > target) {
+        //         speed = -speed;
+        //     }
+
+
+        //     //向执行动画的对象中添加一个timer属性，用来保存它自己的定时器的标识
+        //     obj.timer = setInterval(function () {
+        //         // console.log(getStyle(obj,attr)); 如果不一开始给设置好left和top 很有可能默认是auto！！！就无法获取数值了！！！
+
+        //         var oldValue = parseInt(getStyle(obj, attr));
+        //         // console.log(oldValue);
+
+
+        //         //获取box1的原来的left值
+        //         // var oldValue = obj.offsetLeft;
+        //         //有可能修改各种，不止offsetLeft，比如height，故用更常用的之前定义过的getSytle
+        //         var newValue = oldValue + speed;
+
+        //         if ((speed > 0 && newValue > target) || (speed < 0 && newValue < target)) {
+        //             newValue = target;
+        //         }
+        //         // console.log(newValue);
+
+
+        //         /* 
+        //             obj.style.left = newValue + "px";
+        //             attr是变量，不能用. 要用[]
+        //         */
+        //         obj.style[attr] = newValue + "px";
+
+
+        //         //元素移到target 时停止动画
+        //         if (newValue === target) {
+        //             clearInterval(obj.timer);
+        //             // if (callback != null) {
+        //             //     callback();
+        //             // }
+        //             callback && callback();
+        //         }
+        //     }, 30);
+
+        // }
+
+
+
+        // function getStyle(obj, name) {
+        //     // getComputedStyle(obj, null).name;//cannot write like this, name is a variable
+
+        //     if (window.getComputedStyle) {
+        //         /*
+        //             if browser has this method,
+        //             here we use window.getComputedStyle which is an attribute
+        //             not use getComputedStyle which is a variable, if variable is not found, it will raise un error
+        //         */
+
+        //         return getComputedStyle(obj, null)[name];
+        //     } else {
+        //         return obj.currentStyle[name];
+        //     }
+
+        //     //or 
+        //     // return window.getComputedStyle ? getComputedStyle(obj, null)[name] : obj.currentStyle[name];
+        // }
+    </script>
+
+</head>
+
+<body>
+    <button id="btn01">box1 move right</button>
+    <button id="btn02">box1 move left</button>
+    <button id="btn03">box2 move right</button>
+    <button id="btn04">test</button>
+    <br />
+    <br />
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div style="width: 0; height: 1000px; border-left: 1px black solid; position: absolute; left: 800px; top: 0;"></div>
+</body>
+
+
+</html>

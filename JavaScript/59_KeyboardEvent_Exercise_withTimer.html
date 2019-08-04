@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var speed = 10;
+            var dir = 0;
+            /*
+                开启定时器来控制div的移动刷新
+                解决第一次移动偏慢的问题
+            */
+            setInterval(function(){
+                   // left 37 up 38 right 39 down 40
+                   switch(dir){
+                    case 37:
+                        console.log("left");
+                        
+                        box1.style.left = box1.offsetLeft - speed + "px";
+                        break;
+                    case 38:
+                        console.log("up");
+                        
+                        box1.style.top = box1.offsetTop - speed + "px";
+                        break;
+                    case 39:
+                        console.log("right");
+                        
+                        box1.style.left = box1.offsetLeft + speed + "px";
+                        break;
+                    case 40:
+                        console.log("down");
+                        
+                        box1.style.top = box1.offsetTop + speed + "px";
+                        break;
+
+                }
+                
+            }, 30);
+
+
+
+            document.onkeydown =function(event){
+                event = event || window.event;
+                // console.log(event.keyCode);
+
+                //当用户按了ctrl时加速
+                if(event.ctrlKey){
+                    speed = 60;
+                } else {
+                    speed = 10;
+                }
+
+                dir = event.keyCode;//确定移动方向
+            };
+
+            document.onkeyup = function () {
+                dir = 0;
+            }
+        };
+    </script>
+
+</head>
+
+<body>
+   <div id="box1"></div>
+</body>
+
+
+</html>

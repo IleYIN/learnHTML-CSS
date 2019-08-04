@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+
+        /* 
+            Location 地址栏信息
+        */
+
+        window.onload = function () {
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function () {
+                // alert(location);//(当前页面完成路径)
+
+                //跳转页面到该路径，并生成相应的历史记录
+                // location = "https://www.google.com";
+                // location = "55_BOM_History02.html";
+
+                /*
+                    assign()
+                        用来跳转到其它页面，作用和直接修改location一样
+                */
+                //    location.assign("https://www.google.com");
+
+                /* reload() 重新加载 相当于刷新按钮
+                    或者reload(true) 强制清空缓存刷新页面
+                */
+                
+                // 强制清空缓存刷新 ctrl + F5
+                // location.reload(true);
+
+                /*
+                    replace()
+                    可以使用一个新的页面替换当前页面，调用完毕也会跳转也买你
+                    但是不会生成立时记录，不能使用回退按钮
+                */
+               location.replace("55_BOM_History02.html");
+            };
+        };
+    </script>
+
+</head>
+
+<body>
+    <h1>Location</h1>
+    <button id="btn01">click</button>
+    <input type="text"/>
+</body>
+
+
+</html>

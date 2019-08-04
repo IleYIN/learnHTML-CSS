@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var count = document.getElementById("count");
+
+            // for (var i = 0; i < 10; i++) {
+            //     count.innerHTML = i;  
+            // } 
+            
+            /* setInterval()
+                定时调用
+                可以将一个函数，每隔一段事件执行一次
+                参数：1.回调函数 
+                    2.间隔事件 单位毫秒
+                返回值：Number类型数值
+                        这个数字用来作为定时器的唯一标识
+               
+                clearInterval(timer标识)可以用来关闭一个定时器
+             */
+            var num = 1;
+            var timer = setInterval(function(){
+                count.innerHTML = num++;
+            }, 1000);
+
+            // console.log(timer);
+            if(num==11){
+
+                clearInterval(timer);
+            }
+        };
+    </script>
+
+</head>
+
+<body>
+    <h1 id="count"></h1>
+</body>
+
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+
+            /*
+                onmousewheel event
+                not support firefox
+
+                in firefox use DOMMouseScroll
+                it needs addEventListener() to bind
+            */
+           
+            box1.onmousewheel = function (event) {
+                event = event || window.event;
+                //event.wheelDelta  +120 up; -120 down
+                //firefox doesn't support wheelDelta
+                // alert(event.wheelDelta);
+
+                //in firefox, use event.detail to get rolling direction -3 up; +3 down
+                // alert(event.detail);
+
+                if(event.wheelDelta>0 || event.detail<0){
+                    // alert("roll up");
+                    box1.style.height = box1.clientHeight - 10 +"px";
+                } else {
+                    // alert("roll down");
+                    box1.style.height = box1.clientHeight + 10 +"px";
+                }
+
+
+                /*
+                    当有滚动条时，默认随滚动条一起滚，需要取消
+                    return false;
+
+                    火狐不行 因为使用addEventListener()方法绑定响应函数，取消默认行为时不能用return false
+                    需要使用event来取消默认行为
+                    event.preventDefault()
+                    但是IE8不支持会报错
+                    可以加&&
+                */
+                event.preventDefault && event.preventDefault();
+
+                return false;
+
+            };
+
+            //for firefox
+            // bind(box1, "DOMMouseScroll", function () {
+            //     alert("rolls in firefox");
+            // });
+            bind(box1, "DOMMouseScroll", box1.onmousewheel);
+
+        };
+
+
+
+
+        function bind(obj, eventStr, callback) {
+
+            if (obj.addEventListener) {
+                //this is obj
+                // obj.addEventListener(eventStr, callback, false);
+                obj.addEventListener(eventStr, callback, true);
+            } else {
+
+                //IE8 this is window
+                /* this depends on the style of call back
+                    call back as function style, this is window
+                    can use callback.call(obj) to change this
+                    but here is browser to use the callback function
+                */
+
+                obj.attachEvent("on" + eventStr, function () {
+                    // in an anonymous function, call callback, here is us to use the callback function, so we can use callback.call(obj) to change this
+                    callback().call(obj);
+                });
+
+            }
+        };
+
+    </script>
+
+</head>
+
+<body style="height: 1000px">
+
+    <div id="box1"></div>
+
+</body>
+
+
+</html>

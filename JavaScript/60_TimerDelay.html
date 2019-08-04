@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+      
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            /* 
+                延时调用
+                    只会执行一次
+                （定时调用执行多次）
+                延时调用和定时调用可以相互转换
+            */
+           var num = 0;
+           var timer = setTimeout(function(){
+               console.log(++num);
+           }, 3000);
+
+           //关闭延时调用
+        //    clearTimeout(timer);
+        };
+    </script>
+
+</head>
+
+<body>
+</body>
+
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+        /*
+            BOM
+                浏览器对象模型
+                BOM可以使我们通过JS来操作浏览器
+                BOM对象
+                    Window
+                        - 代表的是整个浏览器的窗口 同时window也是网页中的全局对象
+                    Navigator
+                        - 代表的当前浏览器的信息，通过该对象可以来识别不同的浏览器
+                        - Navigator对象大部分属性已经不能帮助识别浏览器了
+                        - 一般只会使用userAgent来判断浏览器信息 字符串
+                        
+                        IE11中已经将微软和IE相关的表示已经去除了
+                        IE11 Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
+                        IE10 Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)
+                        IE9 Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)
+
+                        Chrome Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36
+
+                        FireFox Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0
+
+                    Location
+                        - 代表当前浏览器的地址栏信息，可以获取地址栏信息或操作浏览器跳转页面
+                    History
+                        - 代表浏览器历史记录，由于隐私问题，该对象不能获取具体历史记录，只能操作浏览器向前或向后翻页
+                            且该操作只能在当次访问有效
+                    Screen
+                        - 代表用户的屏幕的信息，通过该对象可以获取到用户的显示器的相关信息
+
+                    这些BOM对象在浏览器中都是作为window对象的属性保存的
+    
+                    可以通过window对象来使用，也可以直接使用
+        */
+        // console.log(window);
+        // console.log(navigator.appName);
+        // console.log(navigator.userAgent);
+        var ua = navigator.userAgent;
+        console.log(ua);
+        if(/firefox/i.test(ua)){
+            alert("browser firefox");
+        } else if(/chrome/i.test(ua)){
+            alert("browser chrome");
+        } else if(/msie/i.test(ua)){
+            alert("browser IE under 10");
+        } else if("ActiveXObject" in window){
+            alert("browser IE 11");
+        }
+
+
+        /*如果不能通过UserAgent判断，可以通过一些浏览器中特有对象来判断浏览器信息
+            如 IE 含有 activeXObject 这个构造函数
+        */  
+        // if(window.ActiveXObject){
+        //     alert("browser IE8 9 10");//IE11 !!window.ActiveXObject放回false, IE 8 9 10返回true
+        // }
+        // if("ActiveXObject" in window){
+        //     alert("browser IE8 9 10 11");
+        // }
+
+    </script>
+
+</head>
+
+<body>
+</body>
+
+
+</html>

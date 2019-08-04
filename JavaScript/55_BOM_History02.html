@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+
+        /* 
+            History
+                    - 代表浏览器历史记录，由于隐私问题，该对象不能获取具体历史记录，只能操作浏览器向前或向后翻页
+                        且该操作只能在当次访问有效
+
+            length    可以获取到当前访问的链接的数量
+
+            back() 回退到上一个页面
+
+            forward() 前进页面
+
+            go(整数) 去指定页面
+                1 向前跳转一个页面 相当于forward()
+                2 向前跳转两个页面
+                -1 向后跳转一个页面
+                -2 向后跳转两个页面
+        */
+
+        // alert(history.length);
+
+        window.onload = function(){
+            var btn = document.getElementById("btn01");
+            btn.onclick = function(){
+                history.back();
+            };
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                history.forward();
+            };
+
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function(){
+                history.go(-1);
+            };
+        };
+    </script>
+
+</head>
+
+<body>
+    <h1>History</h1>
+    <button id="btn01">back</button>
+    <button id="btn02">forward</button>
+    <button id="btn03">go</button>
+</body>
+
+
+</html>

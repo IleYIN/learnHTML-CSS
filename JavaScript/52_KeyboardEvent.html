@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+     
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            /*
+                键盘事件要给能获取焦点的对象或者document，div不行
+                onkeydown 
+                    如果一直按着键不松手 onkeydown事件会一直触发
+                    当其连续触发时，第一次和第二次会间隔长一些，这样时为了防止误操作
+
+                onkeyup 不会连续触发
+            */
+            // document.onkeydown = function(event) {
+            //     // console.log("key is pressed");
+            //     /*
+            //         可以通过keyCode获取按键的编码
+            //         其它属性
+            //         altKey
+            //         ctrlKey
+            //         shiftKey
+            //             这三个用于判断alt ctrl shift是否被按下
+            //             被按下返回true
+            //     */
+            //     if(event.keyCode===89 && event.ctrlKey){
+            //         console.log("y和ctrl同时被按下");
+                    
+            //     }
+            // };
+            // document.onkeyup = function() {
+            //     console.log("key is released");
+            // };
+
+            //ctrl + F5 强制刷新
+
+            var input = document.getElementsByTagName("input")[0];
+            input.onkeydown = function(event){
+
+                event = event || window.event;
+
+                //数字的keyCode时48到57
+                //不让输入数字可用下面方式
+                if(event.keyCode >= 48 && event.keyCode <= 57){
+                    //取消了默认键入文本框行为
+                    return false;
+                }
+            };
+
+        };
+
+        
+
+    </script>
+
+</head>
+
+<body>
+    <input type="text"/>
+</body>
+
+
+</html>

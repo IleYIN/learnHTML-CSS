@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer{
+            width: 76px;
+            height: 56px;
+            /* 居中 */
+            margin: 5px auto;
+            background-color: #bfa;
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imgList{
+            /* 去除项目符号 */
+            list-style: none;
+            /* width: 400px; 写死不好 用JS改 */
+            position: absolute;
+            /* 设置偏移量offset 来显示图片 */
+            /* left: -76px; */
+            left: 0;
+        }
+
+        #imgList li{
+            float: left;
+            margin: 0 10px;
+        }
+
+        #navDiv{
+            position: absolute;
+            bottom: 2px;
+            /* 设置居中 outer宽度76 a的宽度5px+左右外边距各2
+                （76-9*5）/2 = 31/2  得出left: 15.5px;
+                为方便以后图片及超链接添加减少 不要写死 用JS改
+             */
+             /* left: 15.5px; */
+        }
+
+        #navDiv a{
+            /* display: block; */
+            float: left;
+            /* 浮动后内联元素变为块元素 */
+            width: 5px;
+            height: 5px;
+            background-color: red;
+            margin: 0 2px;
+            opacity: 0.5;
+            /* 兼容IE8的透明度 */
+            filter: alpha(opacity=50);
+        }
+
+        #navDiv a:hover{
+            background-color: black;
+        }
+    </style>
+
+    <!-- 引用工具 添加move函数 -->
+    <script type="text/javascript" src="js/tools.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 76*imgArr.length+"px";
+
+            var navDiv = document.getElementById("navDiv");
+            var outer = document.getElementById("outer");
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth)/2 + "px";
+      
+            var index = 0;
+            var allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+       
+            //点击超链接显示图片
+            for(var i=0; i<allA.length;i++){
+                allA[i].num = i;
+                //因为for循环会在click之前执行完，需要提前存储i的值
+                allA[i].onclick = function(){
+
+                    //关闭自动切换定时器
+                    clearInterval(timer);
+
+                    index = this.num;
+                    //移动图片 
+                    // imgList.style.left = -76*index + "px";  
+                    
+                    //设置导航颜色
+                    setA(); 
+
+                    // 切换图片 使用move函数
+                    move(imgList,"left",-76*index,10,function(){
+                        //动画执行完毕，开启切换
+                        autoChange();
+                    });
+                
+                }
+            }
+
+            // 自动切换图片函数开启
+            autoChange();
+            
+            function setA(){
+
+                //判断当前索引是否是最后一张图片
+                if(index>=imgArr.length-1){
+                    index = 0;
+
+                    //最后一张图片和第一张图片是一样的
+                    //通过CSS瞬间将其切换成第一张
+                    imgList.style.left = 0;
+                }
+
+                for(var i=0;i<allA.length;i++){
+                    // allA[i].style.backgroundColor = "red"
+                    //不设置内联样式，让css发挥作用
+                    allA[i].style.backgroundColor = "";
+                }
+                allA[index].style.backgroundColor = "black";
+            };
+
+            //自动切换定时器
+            var timer;
+            // 自动切换图片函数
+            function autoChange(){
+                //开启定时器
+                timer = setInterval(function() {
+                    index++;
+
+                    //index不能超过图片数
+                    index %= imgArr.length;
+                    move(imgList,"left",-76*index,10,function(){
+                        setA();//修改导航按钮
+                    });
+                }, 1000);
+            };
+        };
+    </script>
+
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li>
+                <img src="../htmlCss/img/pic/fb.JPG" alt="img">
+            </li>
+            <li>
+                <img src="../htmlCss/img/pic/in.JPG" alt="img">
+            </li>
+            <li>
+                <img src="../htmlCss/img/pic/utb.JPG" alt="img">
+            </li>
+            <li>
+                <img src="../htmlCss/img/pic/wifi.JPG" alt="img">
+            </li>
+            <li>
+                <img src="../htmlCss/img/pic/tumb.JPG" alt="img">
+            </li>
+            <li>
+                <img src="../htmlCss/img/pic/fb.JPG" alt="img">
+            </li>
+        </ul>
+        <!-- 创建导航按钮 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+
+</html>

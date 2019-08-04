@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+
+            /* 确保IE浏览器里left不是auto，以方便计算*/
+            left: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            var timer;
+
+            btn01.onclick = function () {
+
+                //关闭上一个定时器
+                clearInterval(timer);
+
+                timer = setInterval(function () {
+                    var oldValue = parseInt(getStyle(box1, "left"));
+                    //获取box1的原来的left值
+                    // var oldValue = box1.offsetLeft;
+                    //有可能修改各种，不止offsetLeft，比如height，故用更常用的之前定义过的getSytle
+                    // alert(oldValue);
+                    var newValue = oldValue + 8;
+
+                    if (newValue > 800) {
+                        newValue = 800;
+                    }
+
+                    box1.style.left = newValue + "px";
+
+                    //元素移到800px时停止动画
+                    if (newValue === 800) {
+                        clearInterval(timer);
+                    }
+                }, 30);
+            }
+        };
+
+        function getStyle(obj, name) {
+            // getComputedStyle(obj, null).name;//cannot write like this, name is a variable
+
+            if (window.getComputedStyle) {
+                /*
+                    if browser has this method,
+                    here we use window.getComputedStyle which is an attribute
+                    not use getComputedStyle which is a variable, if variable is not found, it will raise un error
+                */
+
+                return getComputedStyle(obj, null)[name];
+            } else {
+                return obj.currentStyle[name];
+            }
+
+            //or 
+            // return window.getComputedStyle ? getComputedStyle(obj, null)[name] : obj.currentStyle[name];
+        }
+    </script>
+
+</head>
+
+<body>
+    <button id="btn01">click</button>
+    <br />
+    <br />
+    <div id="box1"></div>
+    <div style="width: 0; height: 1000px; border-left: 1px black solid; position: absolute; left: 800px; top: 0;"></div>
+</body>
+
+
+</html>
