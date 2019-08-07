@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+div.sdmenu {
+    width: 150px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    padding-bottom: 10px;
+    background: url(../../htmlCss/img/background1.jpg) no-repeat right bottom;
+    color: #fff;
+}
+
+div.sdmenu div{
+    background:url(../../htmlCss/img/bd-bg.jpg) repeat-x;
+    overflow: hidden;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+    </style>
+
+    <!-- JSON
+         JSON a special format of String, can be identified by any kinds of language
+         and be transfered to an object
+
+         JavaScript Object Notation
+
+         JSON String, all attributes name must use ""
+
+         JSON types: object {} array []
+         JSON value: String, number, boolean, null, object, array
+    -->
+
+
+    <!-- 
+        JSON doesn't support IE7 and under versions
+        to make it work in IE7, we can refer to an outer js document based on eval()
+    -->
+    
+    <script type="text/javascript" src="js/json2.js"></script>
+    <script type="text/javascript">
+        var obj = '{"name":"aaa", "age":18, "gender":"female"}';
+        var arr = '[1,2,3,"hello",true]';
+        var obj2 = '{"arr":[1,2,3]}';
+        var arr2 = '[{"name":"aaa", "age":18, "gender":"female"},{"name":"aaa", "age":18, "gender":"female"}]'
+
+        /* 
+        JSON to JS object
+        
+        tool class JSON
+        json to js  JSON.parse(json)
+        */
+        var json = '{"name":"aaa", "age":18, "gender":"female"}';
+        var o = JSON.parse(json);
+        var o2 = JSON.parse(arr);
+        console.log(o.gender);
+        console.log(o2[0]);
+
+
+        var jsobj = { name: "bbb", age: 20, gender: "male" };
+        /* 
+             JS object to JSON
+             JSON.stringify(jsobj)
+        */
+        var str = JSON.stringify(jsobj);
+        console.log(str);
+
+        /*
+              JSON doesn't support IE7 and under versions
+        */
+
+        /*
+              eval() can execute JS codes in form of string, and return execution result
+              eval() will take {} as a code block, unless it adds () outside
+
+
+              eval() is not recommended in use, as it's unsafe and its performance is not good
+        */
+        // var str2 = "alert('hello');";
+        // var str3 = '{"name":"aaa", "age":18, "gender":"female"}';
+        // var obj3 = eval("("+str3+")");
+        // // eval(str2);
+        // console.log(obj3);
+
+    </script>
+
+</head>
+
+<body>
+</body>
+
+
+</html>
