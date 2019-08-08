@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style type="text/css">
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="css/sdmenu.css" />
+    <script type="text/javascript" src="js/tools.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+
+
+            var menuSpan = document.querySelectorAll(".menuSpan");
+            var openDiv = menuSpan[0].parentNode;
+
+
+            for (var i = 0; i < menuSpan.length; i++) {
+                menuSpan[i].onClick = function () {
+
+                    var parentDiv = this.parentNode;// this is the current menuSpan
+
+                    //switch the current Div to Open or to Collapsed
+                    // toggleClass(parentDiv, "collapsed");
+                    toggleMenu(parentDiv);
+
+                    //make sure the other open div collapse and the other collapsed div do nothing
+                    //make menu div collapsed if it doesn't have collapsed and openDiv is not the same as parentDiv
+                    if (openDiv != parentDiv && !hasClass(openDiv, "collapsed")) {
+                        // addClass(openDiv, "collapsed");
+
+                        //use toggleClass without the function of removeClass, because we want to add animation effect
+                        // toggleClass(openDiv, "collapsed");
+                        toggleMenu(openDiv);
+                    }
+                    openDiv = parentDiv;
+                }
+            }
+        };
+
+
+        //to switch the style of height of the menu
+        function toggleMenu(obj) {
+
+            var begin = obj.offsetHeight;
+
+            toggleClass(obj, "collapsed");
+
+            var end = obj.offsetHeight;
+
+            //animation effect
+            obj.style.height = begin = "px";
+            move(obj, "height", end, 10, function () {
+                //after animation effect, no need of inline style any more
+                obj.style.height = "";
+            });
+        }
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="my_menu" class="sdmenu">
+
+    </div>
+    <div>
+        <span class="menuSpan">span1</span>
+        <a href="#">a1</a>
+        <a href="#">a2</a>
+        <a href="#">a3</a>
+        <a href="#">a4</a>
+        <a href="#">a5</a>
+        <a href="#">a6</a>
+    </div>
+    <div class="collapsed">
+        <span class="menuSpan">span2</span>
+        <a href="#">a1</a>
+        <a href="#">a2</a>
+        <a href="#">a3</a>
+    </div>
+    <div class="collapsed">
+        <span class="menuSpan">span3</span>
+        <a href="#">a1</a>
+        <a href="#">a2</a>
+        <a href="#">a3</a>
+        <a href="#">a4</a>
+    </div>
+    <div class="collapsed">
+        <span class="menuSpan">span4</span>
+        <a href="#">a1</a>
+        <a href="#">a2</a>
+        <a href="#">a3</a>
+        <a href="#">a4</a>
+    </div>
+</body>
+
+
+</html>
